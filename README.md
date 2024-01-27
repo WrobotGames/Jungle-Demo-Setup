@@ -1,4 +1,7 @@
 # Jungle-Demo-Setup
+![image](https://github.com/WrobotGames/Jungle-Demo-Setup/assets/66079814/73c64cc2-00b1-401a-9846-225ca140064f)
+
+
 IMPORTANT: Project developed in Godot 4.2 DEV 6 (NEWER MAY NOT WORK)
 
 The source code for my jungle demo scene with all copyrighted material removed. 
