@@ -1,11 +1,12 @@
 # Jungle-Demo-Setup
-![image](https://github.com/WrobotGames/Jungle-Demo-Setup/assets/66079814/73c64cc2-00b1-401a-9846-225ca140064f)
+![image](https://github.com/WrobotGames/Jungle-Demo-Setup/assets/66079814/359ed7b5-0474-42cb-b1dc-a9d1279a0288)
+
 
 
 IMPORTANT: Project developed in Godot 4.2 DEV 6 (NEWER MAY NOT WORK)
 
 The source code for my jungle demo scene with all copyrighted material removed. 
-Things removed: all jungle 3D models and textures, font used for gui.
+Things removed: all jungle 3D models and textures, font used for gui. Meshes have been replaced with cubes. 
 Things still there: All gui, scenes with lighting setup, terrain, CC0 textures, music (CCO music)
 
 For who is this repo? This repo is for anyone who is interested in how the demo was set up, reminder that this was a hobby project, and im not a professional game dev nor a professional programmer. I couldnt be bothered changing the names of files/funcions, so expect some lazy names somewhere.
