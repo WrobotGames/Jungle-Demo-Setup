@@ -1,0 +1,19 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://delj3mi1iaei4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lorod"]
+bg_color = Color(0.12549, 0.12549, 0.12549, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.152941, 0.152941, 0.152941, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[resource]
+Button/colors/font_color = Color(0.843137, 0.843137, 0.843137, 1)
+Button/styles/normal = SubResource("StyleBoxFlat_lorod")
+Label/colors/font_color = Color(1, 1, 1, 1)

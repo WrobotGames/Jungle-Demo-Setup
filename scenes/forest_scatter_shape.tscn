@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://dn8jlfie3tecr"]
+
+[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_shape.gd" id="1_6byfk"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/shapes/box_shape.gd" id="2_d0pgl"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/shapes/path_shape.gd" id="3_744ni"]
+
+[sub_resource type="Resource" id="Resource_w7iwi"]
+script = ExtResource("2_d0pgl")
+size = Vector3(1000, 2.675, 1000)
+
+[sub_resource type="Curve3D" id="Curve3D_sq4r5"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 268.384, 0, -435.132, 0, 0, 0, 0, 0, 0, 319.327, 0, -408.205, 0, 0, 0, 0, 0, 0, 368.815, 0, -400.2, 0, 0, 0, 0, 0, 0, 373.909, 0, -336.157, 0, 0, 0, 0, 0, 0, 399.381, 0, -309.23, 0, 0, 0, 0, 0, 0, 362.993, 0, -277.208, 0, 0, 0, 0, 0, 0, 280.028, 0, -266.292, 0, 0, 0, 0, 0, 0, 225.446, 0, -263.381, 0, 0, 0, 0, 0, 0, 170.864, 0, -259.014, 0, 0, 0, 0, 0, 0, 106.093, 0, -251.736, 0, 0, 0, 0, 0, 0, 85.7156, 0, -282.302, 0, 0, 0, 0, 0, 0, 104.637, 0, -308.502, 0, 0, 0, 0, 0, 0, 143.936, 0, -319.418, 0, 0, 0, 0, 0, 0, 254.556, 0, -341.251, 0, 0, 0, 0, 0, 0, 250.19, 0, -355.078, 0, 0, 0, 0, 0, 0, 220.351, 0, -374, 0, 0, 0, 0, 0, 0, 201.43, 0, -390.739, 0, 0, 0, 0, 0, 0, 216.713, 0, -417.666, 0, 0, 0, 0, 0, 0, 246.551, 0, -431.493),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 19
+
+[sub_resource type="Resource" id="Resource_spnki"]
+script = ExtResource("3_744ni")
+closed = true
+thickness = 0.0
+curve = SubResource("Curve3D_sq4r5")
+
+[sub_resource type="Curve3D" id="Curve3D_14nmr"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -377.038, 0, -368.484, 0, 0, 0, 0, 0, 0, -382.875, 0, -315.956, 0, 0, 0, 0, 0, 0, -292.994, 0, -242.417, 0, 0, 0, 0, 0, 0, -410.889, 0, -210.901, 0, 0, 0, 0, 0, 0, -398.049, 0, -146.7, 0, 0, 0, 0, 0, 0, -426.064, 0, -83.6673, 0, 0, 0, 0, 0, 0, -372.369, 0, -84.8346, 0, 0, 0, 0, 0, 0, -323.343, 0, -122.188, 0, 0, 0, 0, 0, 0, -303.5, 0, -137.362, 0, 0, 0, 0, 0, 0, -190.274, 0, -101.177, 0, 0, 0, 0, 0, 0, -199.612, 0, -177.05, 0, 0, 0, 0, 0, 0, -256.808, 0, -178.217, 0, 0, 0, 0, 0, 0, -236.965, 0, -254.09, 0, 0, 0, 0, 0, 0, -299.998, 0, -290.276, 0, 0, 0, 0, 0, 0, -239.299, 0, -319.458, 0, 0, 0, 0, 0, 0, -246.303, 0, -359.145, 0, 0, 0, 0, 0, 0, -299.998, 0, -403.502, 0, 0, 0, 0, 0, 0, -318.674, 0, -349.807, 0, 0, 0, 0, 0, 0, -358.362, 0, -380.156),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 19
+
+[sub_resource type="Resource" id="Resource_hn0b4"]
+script = ExtResource("3_744ni")
+closed = true
+thickness = 0.0
+curve = SubResource("Curve3D_14nmr")
+
+[node name="ForestScatterShape" type="Node3D"]
+
+[node name="ScatterShape" type="Node3D" parent="."]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
+script = ExtResource("1_6byfk")
+shape = SubResource("Resource_w7iwi")
+
+[node name="ScatterShape3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.727783)
+script = ExtResource("1_6byfk")
+negative = true
+shape = SubResource("Resource_spnki")
+
+[node name="ScatterShape2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.3382, 0, 5.83639)
+script = ExtResource("1_6byfk")
+negative = true
+shape = SubResource("Resource_hn0b4")

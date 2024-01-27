@@ -1,0 +1,67 @@
+[gd_scene load_steps=15 format=3 uid="uid://b1lksu71hvr6y"]
+
+[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter.gd" id="1_8p8cn"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/stack/modifier_stack.gd" id="2_ahooi"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/create_inside_random.gd" id="3_6vlv4"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/randomize_rotation.gd" id="4_k7wa4"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/project_on_terrain3d.gd" id="5_8lr5v"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_item.gd" id="6_citn2"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_shape.gd" id="7_fmb0h"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/shapes/box_shape.gd" id="8_7c6d5"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/common/physics_helper.gd" id="9_a4lt2"]
+
+[sub_resource type="Resource" id="Resource_dpfcy"]
+script = ExtResource("3_6vlv4")
+amount = 30
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 1
+
+[sub_resource type="Resource" id="Resource_nusnr"]
+script = ExtResource("4_k7wa4")
+rotation = Vector3(0, 360, 0)
+snap_angle = Vector3(0, 0, 0)
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 0
+
+[sub_resource type="Resource" id="Resource_j5kw7"]
+script = ExtResource("5_8lr5v")
+terrain_node = NodePath("../Terrain3D")
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 0
+
+[sub_resource type="Resource" id="Resource_mvk16"]
+script = ExtResource("2_ahooi")
+stack = Array[Resource]([SubResource("Resource_dpfcy"), SubResource("Resource_nusnr"), SubResource("Resource_j5kw7")])
+
+[sub_resource type="Resource" id="Resource_esevc"]
+script = ExtResource("8_7c6d5")
+size = Vector3(128, 2.675, 128)
+
+[node name="ProtonScatter6" type="Node3D"]
+script = ExtResource("1_8p8cn")
+global_seed = 173
+dbg_disable_thread = true
+modifier_stack = SubResource("Resource_mvk16")
+
+[node name="ScatterItem" type="Node3D" parent="."]
+script = ExtResource("6_citn2")
+path = "res://packs/Jungle/Meshes/Plants/sm_rafflesia.tscn"
+
+[node name="ScatterShape" type="Node3D" parent="."]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
+script = ExtResource("7_fmb0h")
+shape = SubResource("Resource_esevc")
+
+[node name="_Node_18248" type="Node" parent="."]
+script = ExtResource("9_a4lt2")
+
+[node name="ScatterOutput" type="Marker3D" parent="."]

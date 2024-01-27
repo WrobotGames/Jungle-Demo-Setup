@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://s675gc04xrtk"]
+
+[ext_resource type="Shader" uid="uid://juqerrwmrekt" path="res://materials/BillboardShader.tres" id="1_6xokr"]
+[ext_resource type="Texture2D" uid="uid://b3cbjpbrijtx7" path="res://textures/grass01/leafy_grass_diff_2k.jpg" id="2_siquj"]
+[ext_resource type="Texture2D" path="res://textures/grass01/leafy_grass_nor_gl_2k.dds" id="3_oi76p"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qh77n"]
+size = Vector2(17, 17)
+orientation = 2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q4mta"]
+render_priority = 0
+shader = ExtResource("1_6xokr")
+shader_parameter/albedo = Color(0.486275, 0.776471, 0.337255, 1)
+shader_parameter/alpha_scissor_threshold = 0.415
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = null
+shader_parameter/specular = 0.0
+shader_parameter/metallic = 0.0
+shader_parameter/normal_scale = 1.0
+shader_parameter/backlight = Color(0.541176, 0.541176, 0.541176, 1)
+shader_parameter/uv1_scale = Vector3(0.065, 0.065, 0.065)
+shader_parameter/uv1_offset = Vector3(3.125, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/texture_albedo = ExtResource("2_siquj")
+shader_parameter/texture_normal = ExtResource("3_oi76p")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="bill" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.32159, 0)
+mesh = SubResource("PlaneMesh_qh77n")
+surface_material_override/0 = SubResource("ShaderMaterial_q4mta")

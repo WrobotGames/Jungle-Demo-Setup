@@ -1,0 +1,117 @@
+[gd_scene load_steps=5 format=3 uid="uid://bujmt4htelbhi"]
+
+[ext_resource type="Theme" uid="uid://delj3mi1iaei4" path="res://scenes/gui/theme.tres" id="1_18j1u"]
+[ext_resource type="Script" path="res://scripts/pause.gd" id="2_wunst"]
+[ext_resource type="PackedScene" uid="uid://bx8wjl3nj3m11" path="res://scenes/gui/settings.tscn" id="3_fi6y3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iv45u"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 575
+border_color = Color(0, 0, 0, 0.894118)
+border_blend = true
+
+[node name="pausemenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_18j1u")
+script = ExtResource("2_wunst")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_iv45u")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 30.0
+offset_top = -197.0
+offset_right = 227.0
+offset_bottom = 197.0
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.635294, 1, 0.470588, 1)
+theme_override_font_sizes/font_size = 21
+text = "Paused"
+horizontal_alignment = 1
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="resume" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Resume"
+
+[node name="settingsbtn" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Settings"
+
+[node name="quitbtn" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label3" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quick Toggles"
+horizontal_alignment = 1
+
+[node name="showcasebtn" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Drone Mode"
+
+[node name="showcasebtn2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Performance Stats"
+
+[node name="blackbars" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Cinematic Bars"
+
+[node name="HSeparator4" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Time:"
+horizontal_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.0
+value = 0.3
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Settings" parent="." instance=ExtResource("3_fi6y3")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="VBoxContainer/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="VBoxContainer/settingsbtn" to="." method="_on_settingsbtn_pressed"]
+[connection signal="pressed" from="VBoxContainer/quitbtn" to="." method="_on_quitbtn_pressed"]
+[connection signal="pressed" from="VBoxContainer/showcasebtn" to="." method="_on_showcasebtn_pressed"]
+[connection signal="pressed" from="VBoxContainer/showcasebtn2" to="." method="_on_showcasebtn_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/blackbars" to="." method="_on_blackbars_pressed"]
+[connection signal="value_changed" from="VBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]

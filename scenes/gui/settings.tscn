@@ -1,0 +1,286 @@
+[gd_scene load_steps=4 format=3 uid="uid://bx8wjl3nj3m11"]
+
+[ext_resource type="Theme" uid="uid://delj3mi1iaei4" path="res://scenes/gui/theme.tres" id="1_7wsqq"]
+[ext_resource type="Script" path="res://scripts/settings.gd" id="1_buhqo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xw01u"]
+bg_color = Color(0.137255, 0.137255, 0.137255, 0.905882)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchor_left = 0.01
+anchor_top = 0.01
+anchor_right = 0.3
+anchor_bottom = 0.99
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_7wsqq")
+script = ExtResource("1_buhqo")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xw01u")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.02
+anchor_top = 0.01
+anchor_right = 0.98
+anchor_bottom = 0.99
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="closebtn" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+text = "< Close"
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Presets"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="lowest" type="Button" parent="VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Lowest"
+
+[node name="low" type="Button" parent="VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Low"
+
+[node name="medium" type="Button" parent="VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Medium"
+
+[node name="high" type="Button" parent="VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "High"
+
+[node name="ultra" type="Button" parent="VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Ultra"
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Display Settings"
+
+[node name="fullscreen" type="CheckBox" parent="VBoxContainer/ScrollContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+button_pressed = true
+text = "Fullscreen"
+flat = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="reslabel2" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/GridContainer/HBoxContainer"]
+layout_mode = 2
+text = "3D Resolution:"
+
+[node name="res" type="HSlider" parent="VBoxContainer/ScrollContainer/VBoxContainer/GridContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 25.0
+max_value = 200.0
+value = 101.0
+rounded = true
+
+[node name="reslabel" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/GridContainer/HBoxContainer"]
+layout_mode = 2
+text = "100%"
+
+[node name="vsync" type="CheckBox" parent="VBoxContainer/ScrollContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+button_pressed = true
+text = "Vsync"
+flat = true
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer/ScrollContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Label10" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Upscaling and Anti Aliasing"
+
+[node name="fsr" type="CheckBox" parent="VBoxContainer/ScrollContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "FSR 1.0"
+flat = true
+
+[node name="fsr2_2" type="CheckBox" parent="VBoxContainer/ScrollContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "FSR 2.2"
+flat = true
+
+[node name="taa" type="CheckBox" parent="VBoxContainer/ScrollContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+button_pressed = true
+text = "TAA "
+flat = true
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/ScrollContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Graphics Settings"
+
+[node name="shadow" type="OptionButton" parent="VBoxContainer/ScrollContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+item_count = 7
+selected = 4
+popup/item_0/text = "Shadows: Disabled"
+popup/item_0/id = 0
+popup/item_1/text = "Shadows: Lowest"
+popup/item_1/id = 1
+popup/item_2/text = "Shadows: Low"
+popup/item_2/id = 2
+popup/item_3/text = "Shadows: Medium"
+popup/item_3/id = 3
+popup/item_4/text = "Shadows: High"
+popup/item_4/id = 4
+popup/item_5/text = "Shadows: Ultra"
+popup/item_5/id = 5
+popup/item_6/text = "Shadows: Extreme (For testing)"
+popup/item_6/id = 6
+
+[node name="ssao" type="CheckBox" parent="VBoxContainer/ScrollContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+button_pressed = true
+text = "SSAO (Screen Space Ambient Occlusion)"
+flat = true
+
+[node name="ssil" type="CheckBox" parent="VBoxContainer/ScrollContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SSIL (Screen Space Global Illumination)"
+flat = true
+
+[node name="glow" type="CheckBox" parent="VBoxContainer/ScrollContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+button_pressed = true
+text = "Glow"
+flat = true
+
+[node name="vf" type="CheckBox" parent="VBoxContainer/ScrollContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+button_pressed = true
+text = "Volumetric Fog"
+flat = true
+
+[node name="dof" type="CheckBox" parent="VBoxContainer/ScrollContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+button_pressed = true
+text = "Dof"
+flat = true
+
+[node name="grass" type="CheckBox" parent="VBoxContainer/ScrollContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+button_pressed = true
+text = "Grass"
+flat = true
+
+[node name="groundveg" type="CheckBox" parent="VBoxContainer/ScrollContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+button_pressed = true
+text = "Ground Vegetation"
+flat = true
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer/ScrollContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Experimental"
+
+[node name="sdfgi" type="CheckBox" parent="VBoxContainer/ScrollContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+button_pressed = true
+text = "SDFGI (Global Illumination)"
+flat = true
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/closebtn" to="." method="_on_close_requested"]
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/lowest" to="." method="_on_lowest_pressed"]
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/low" to="." method="_on_low_pressed"]
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/medium" to="." method="_on_medium_pressed"]
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/high" to="." method="_on_high_pressed"]
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/ultra" to="." method="_on_ultra_pressed"]
+[connection signal="toggled" from="VBoxContainer/ScrollContainer/VBoxContainer/GridContainer/fullscreen" to="." method="_on_fullscreen_toggled"]
+[connection signal="value_changed" from="VBoxContainer/ScrollContainer/VBoxContainer/GridContainer/HBoxContainer/res" to="." method="_on_res_value_changed"]
+[connection signal="toggled" from="VBoxContainer/ScrollContainer/VBoxContainer/GridContainer/vsync" to="." method="_on_vsync_toggled"]
+[connection signal="toggled" from="VBoxContainer/ScrollContainer/VBoxContainer/GridContainer/fsr" to="." method="_on_fsr_toggled"]
+[connection signal="toggled" from="VBoxContainer/ScrollContainer/VBoxContainer/GridContainer/fsr2_2" to="." method="_on_fsr_2_2_toggled"]
+[connection signal="toggled" from="VBoxContainer/ScrollContainer/VBoxContainer/GridContainer/taa" to="." method="_on_taa_toggled"]
+[connection signal="item_selected" from="VBoxContainer/ScrollContainer/VBoxContainer/GridContainer/shadow" to="." method="_on_shadow_item_selected"]
+[connection signal="toggled" from="VBoxContainer/ScrollContainer/VBoxContainer/GridContainer/ssao" to="." method="_on_ssao_toggled"]
+[connection signal="toggled" from="VBoxContainer/ScrollContainer/VBoxContainer/GridContainer/ssil" to="." method="_on_ssil_toggled"]
+[connection signal="toggled" from="VBoxContainer/ScrollContainer/VBoxContainer/GridContainer/glow" to="." method="_on_glow_toggled"]
+[connection signal="toggled" from="VBoxContainer/ScrollContainer/VBoxContainer/GridContainer/vf" to="." method="_on_vf_toggled"]
+[connection signal="toggled" from="VBoxContainer/ScrollContainer/VBoxContainer/GridContainer/dof" to="." method="_on_dof_toggled"]
+[connection signal="toggled" from="VBoxContainer/ScrollContainer/VBoxContainer/GridContainer/grass" to="." method="_on_grass_toggled"]
+[connection signal="toggled" from="VBoxContainer/ScrollContainer/VBoxContainer/GridContainer/groundveg" to="." method="_on_groundveg_toggled"]
+[connection signal="toggled" from="VBoxContainer/ScrollContainer/VBoxContainer/GridContainer/sdfgi" to="." method="_on_sdfgi_toggled"]
