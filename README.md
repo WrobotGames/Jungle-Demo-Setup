@@ -8,7 +8,11 @@ The source code for my jungle demo scene with all copyrighted material removed.
 Things removed: all jungle 3D models and textures, font used for gui.
 Things still there: All gui, scenes with lighting setup, terrain, CC0 textures, music (CCO music)
 
-For who is this repo? This repo is for anyone who is interested in how the demo was set up, reminder that this was a hobby project, and im not a professional game dev nor a professional programmer. 
+For who is this repo? This repo is for anyone who is interested in how the demo was set up, reminder that this was a hobby project, and im not a professional game dev nor a professional programmer. I couldnt be bothered changing the names of files/funcions, so expect some lazy names somewhere.
+## What how where?
+The project opens the main.tscn by default, this is the main menu.
+The main jungle scene is scenes/jungle.tscn
+All scattered foliage and the terrain is in the scenes/JungleFoliage.tscn file, seperated because saving would take too long.
 
 # Licenses:
 
