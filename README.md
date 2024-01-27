@@ -24,4 +24,4 @@ This work is licensed under the Creative Commons Attribution 4.0 International
 license (CC BY 4.0 International): https://creativecommons.org/licenses/by/4.0/```
 
 ## Other files
-All other have been made by WrobotGames and can be used under the CC BY 4.0 license. Code or design ideas can be used freely
+All other have been made by WrobotGames and can be used under the MIT license. Code or design ideas can be used freely
