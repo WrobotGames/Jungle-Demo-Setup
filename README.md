@@ -1,5 +1,6 @@
 # Jungle-Demo-Setup
-![image](https://github.com/WrobotGames/Jungle-Demo-Setup/assets/66079814/359ed7b5-0474-42cb-b1dc-a9d1279a0288)
+
+![Godot Engine Screenshot 2025 04 06 - 21 47 41 44](https://github.com/user-attachments/assets/76a80219-e41d-4df5-826b-47c63e1a1220)
 
 
 
@@ -20,7 +21,7 @@ All scattered foliage and the terrain is in the scenes/JungleFoliage.tscn file, 
 ## Addons
 MIT Licence by hungeryproton and tokisangames. https://github.com/HungryProton/scatter https://github.com/TokisanGames/Terrain3D
 
-## The 2 music files and the textures: 
+## The music, sfx and the textures: 
 CC0, from polyhaven, ambientCG and OpenGameArt
 While the license allows it, I suggest getting these files from their original source when using them outside of this demo.
 
