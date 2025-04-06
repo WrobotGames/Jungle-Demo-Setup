@@ -4,43 +4,29 @@
 code = "// NOTE: Shader automatically converted from Godot Engine 4.2.dev3's StandardMaterial3D.
 
 shader_type spatial;
-render_mode blend_mix,depth_draw_opaque,cull_disabled,diffuse_burley,specular_schlick_ggx;
+render_mode blend_mix,depth_draw_opaque,cull_disabled,diffuse_burley,specular_schlick_ggx, world_vertex_coords;
 uniform vec4 albedo : source_color;
 uniform sampler2D texture_albedo : source_color,filter_linear_mipmap,repeat_enable;
-uniform float alpha_scissor_threshold;
-uniform float point_size : hint_range(0,128);
 uniform float roughness : hint_range(0,1);
-uniform sampler2D texture_metallic : hint_default_white,filter_linear_mipmap,repeat_enable;
-uniform vec4 metallic_texture_channel;
-uniform sampler2D texture_roughness : hint_roughness_r,filter_linear_mipmap,repeat_enable;
 uniform sampler2D WorldNoise : filter_linear_mipmap,repeat_enable;
 uniform float specular;
-uniform float metallic;
 uniform sampler2D texture_normal : hint_roughness_normal,filter_linear_mipmap,repeat_enable;
 uniform float normal_scale : hint_range(-16,16);
 uniform vec4 backlight : source_color;
-uniform sampler2D texture_backlight : hint_default_black,filter_linear_mipmap,repeat_enable;
-uniform vec3 uv1_scale;
-uniform vec3 uv1_offset;
 
 uniform float sway_speed = 0.01;
 uniform float sway_strength = 0.1;
-uniform float sway_phase_len = 8.0;
-
-
+global uniform vec3 cam_pos;
+global uniform float trees_draw_distance;
+global uniform float trees_draw_distance_start;
+uniform bool is_plant = false;
+uniform float render_dist = 40.;
+global uniform float render_dist_factor;
 void vertex() {
-	UV=UV*uv1_scale.xy+uv1_offset.xy;
 	float strength = COLOR.r * sway_strength;
-	//VERTEX.x += sin(VERTEX.x * sway_phase_len * 1.123 + TIME * sway_speed) * strength;
-	//VERTEX.y += sin(VERTEX.y * sway_phase_len + TIME * sway_speed * 1.12412) * strength;
-	//VERTEX.z += sin(VERTEX.z * sway_phase_len * 0.9123 + TIME * sway_speed * 1.3123) * strength;
-	VERTEX.x += (-.5 + texture(WorldNoise, VERTEX.xz * vec2(0.01) + vec2(TIME * sway_speed)).r) * strength;
-	VERTEX.y += (-.5 + texture(WorldNoise, VERTEX.xz * vec2(0.01) + vec2(TIME * sway_speed)).r) * strength;
-	VERTEX.z += (-.5 + texture(WorldNoise, VERTEX.xz * vec2(0.01) + vec2(TIME * sway_speed)).r) * strength;
+	VERTEX += vec3(1.,2.,1.)* vec3((-.5 + texture(WorldNoise, VERTEX.xz * vec2(0.01) + vec2(TIME * sway_speed)).r) * strength);
+	COLOR.x = distance(VERTEX, cam_pos);
 }
-
-
-
 
 
 vec3 desaturate(vec3 color, float amount)
@@ -50,21 +36,43 @@ vec3 desaturate(vec3 color, float amount)
 }
 
 void fragment() {
-	vec2 base_uv = UV;
-	vec4 albedo_tex = texture(texture_albedo,base_uv);
-	ALBEDO = desaturate( albedo.rgb * albedo_tex.rgb, 0.2) * vec3(1.0,1.,.9);
-	float metallic_tex = dot(texture(texture_metallic,base_uv),metallic_texture_channel);
-	METALLIC = metallic_tex * metallic;
-	vec4 roughness_texture_channel = vec4(1.0,0.0,0.0,0.0);
-	float roughness_tex = dot(texture(texture_roughness,base_uv),roughness_texture_channel);
-	ROUGHNESS = roughness_tex * roughness;
-	SPECULAR = specular;
-	NORMAL_MAP = texture(texture_normal,base_uv).rgb;
+	float fade_distance = COLOR.x;
+	if (is_plant){
+		if (fade_distance > render_dist * render_dist_factor){
+		discard;
+		}
+		if (fade_distance > render_dist * render_dist_factor * 0.8){
+		const vec3 magic = vec3(0.06711056f, 0.00583715f, 52.9829189f);		float fade = clamp(smoothstep( render_dist * render_dist_factor, render_dist * render_dist_factor * 0.8, fade_distance), 0.0, 1.0);
+		if (fade < 0.001 || fade < fract(magic.z * fract(dot(FRAGCOORD.xy, magic.xy)))) {
+			discard;
+		}
+	}
+
+
+	}else{
+			if (fade_distance > trees_draw_distance){
+		discard;
+	}
+	if (fade_distance > trees_draw_distance_start){
+		const vec3 magic = vec3(0.06711056f, 0.00583715f, 52.9829189f);		float fade = clamp(smoothstep(trees_draw_distance, trees_draw_distance_start, fade_distance), 0.0, 1.0);
+		if (fade < 0.001 || fade < fract(magic.z * fract(dot(FRAGCOORD.xy, magic.xy)))) {
+			discard;
+		}
+	}
+	}
+
+	vec4 albedo_tex = texture(texture_albedo,UV);
+	ALBEDO = desaturate( albedo.rgb * albedo_tex.rgb, 0.2)* vec3(1.0,1.,.9);
+	ROUGHNESS = roughness;
+	if (is_plant){
+
+		SPECULAR = 0.5 * specular * clamp(smoothstep(render_dist * render_dist_factor,render_dist * render_dist_factor * 0.3, fade_distance), 0.4, 1.0);
+	}else{
+	SPECULAR = specular * clamp(smoothstep(100., 40., fade_distance), 0.3, 1.0);}
+	NORMAL_MAP = texture(texture_normal,UV).rgb;
 	NORMAL_MAP_DEPTH = normal_scale;
 	ALPHA *= albedo.a * albedo_tex.a;
-	ALPHA_SCISSOR_THRESHOLD = alpha_scissor_threshold;
-	//ALPHA_SCISSOR_THRESHOLD = 0.4;
-	vec3 backlight_tex = texture(texture_backlight,base_uv).rgb;
-	BACKLIGHT = (backlight.rgb+backlight_tex);
+	ALPHA_SCISSOR_THRESHOLD = 0.3;
+	BACKLIGHT = backlight.rgb * clamp(smoothstep(60., 40., fade_distance), 0.3, 1.0);
 }
 "

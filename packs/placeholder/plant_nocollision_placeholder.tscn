@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cy6hrc80i1dys"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_lgxqe"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rf7g7"]
+albedo_color = Color(0.039605, 0.380208, 0.039605, 1)
+metallic_specular = 0.32
+roughness = 0.55
+
+[node name="PlantNocollisionPlaceholder" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.234376, 0)
+mesh = SubResource("BoxMesh_lgxqe")
+surface_material_override/0 = SubResource("StandardMaterial3D_rf7g7")

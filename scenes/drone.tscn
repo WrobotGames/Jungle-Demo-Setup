@@ -1,22 +1,71 @@
-[gd_scene load_steps=4 format=3 uid="uid://byym202ro6lqq"]
+[gd_scene load_steps=10 format=3 uid="uid://byym202ro6lqq"]
 
 [ext_resource type="Script" path="res://scripts/drone.gd" id="1_7kck6"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_a0os2"]
+[ext_resource type="AudioStream" uid="uid://bqxfe6ulgpxhq" path="res://scenes/JungleAudio/footsteps/gassy-footstep1.wav" id="2_dyptp"]
+[ext_resource type="PackedScene" uid="uid://chuy1u8dfwtb3" path="res://packs/GodotPlush/2024_06_24_godot_plushy.tscn" id="2_joaxo"]
+[ext_resource type="AudioStream" uid="uid://c30hiitnu17x0" path="res://scenes/JungleAudio/footsteps/grassy-footstep2.wav" id="3_1nhaa"]
+[ext_resource type="AudioStream" uid="uid://cbvxs7xv3wcs6" path="res://scenes/JungleAudio/footsteps/grassy-footstep3.wav" id="4_8lg8g"]
+[ext_resource type="AudioStream" uid="uid://dks5hblmgq10k" path="res://scenes/JungleAudio/footsteps/grassy-footstep4.wav" id="5_1ae22"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_8tnkf"]
+radius = 0.3
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3k1ed"]
+radius = 0.3
+height = 1.8
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_bvrtp"]
+random_pitch = 1.25
+random_volume_offset_db = 0.78
+streams_count = 4
+stream_0/stream = ExtResource("2_dyptp")
+stream_1/stream = ExtResource("3_1nhaa")
+stream_2/stream = ExtResource("4_8lg8g")
+stream_3/stream = ExtResource("5_1ae22")
 
 [node name="Drone" type="CharacterBody3D"]
 script = ExtResource("1_7kck6")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("SphereMesh_a0os2")
-skeleton = NodePath("../Camera3D")
+[node name="AudioListener3D" type="AudioListener3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.371092, 0)
+current = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_8tnkf")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 doppler_tracking = 1
+current = true
 fov = 70.0
 far = 8000.0
+
+[node name="head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.612854, 0)
+
+[node name="Camera3D" type="Camera3D" parent="head"]
+fov = 70.0
+far = 8000.0
+
+[node name="flashlight" type="SpotLight3D" parent="head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.233996, -0.372153)
+visible = false
+light_intensity_lumens = 100000.0
+light_temperature = 3565.0
+light_energy = 32.0
+spot_range = 50.0
+
+[node name="2024-06-24_Godot_Plushy" parent="head" groups=["plush"] instance=ExtResource("2_joaxo")]
+transform = Transform3D(0.787755, -0.499343, -0.360691, 0.08835, 0.671085, -0.736097, 0.60962, 0.547997, 0.572768, 0.23, -0.121, -0.467)
+visible = false
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_3k1ed")
+disabled = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.613001, 0)
+stream = SubResource("AudioStreamRandomizer_bvrtp")
+volume_db = 4.908
+max_db = 4.0
+max_polyphony = 3
+bus = &"GameSFX"

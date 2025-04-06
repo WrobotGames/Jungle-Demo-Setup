@@ -56,7 +56,7 @@ void fragment() {
 // DistanceFade:11
 	float n_in11p0 = 3000.00000;
 	float n_in11p1 = 1000.00000;
-	float n_out11p0 = clamp(smoothstep(n_in11p0, n_in11p1,-VERTEX.z),0.0,1.0);
+	float n_out11p0 = clamp(smoothstep(n_in11p0, n_in11p1, length(VERTEX)), 0.0, 1.0);
 
 
 // Input:4
@@ -114,6 +114,7 @@ void fragment() {
 
 }
 "
+graph_offset = Vector2(-375.912, -163.353)
 modes/blend = 1
 nodes/fragment/0/position = Vector2(1000, 180)
 nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_qyuj4")

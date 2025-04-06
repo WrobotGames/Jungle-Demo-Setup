@@ -1,7 +1,11 @@
 [configuration]
 
 entry_symbol = "terrain_3d_init"
-compatibility_minimum = 4.1
+compatibility_minimum = 4.4
+
+[icons]
+
+Terrain3D = "res://addons/terrain_3d/icons/terrain3d.svg"
 
 [libraries]
 
@@ -20,3 +24,9 @@ macos.release = "res://addons/terrain_3d/bin/libterrain.macos.release.framework"
 
 android.debug.arm64 = "res://addons/terrain_3d/bin/libterrain.android.debug.arm64.so"
 android.release.arm64 = "res://addons/terrain_3d/bin/libterrain.android.release.arm64.so"
+
+ios.debug = "res://addons/terrain_3d/bin/libterrain.ios.debug.universal.dylib"
+ios.release = "res://addons/terrain_3d/bin/libterrain.ios.release.universal.dylib"
+
+web.debug = "res://addons/terrain_3d/bin/libterrain.web.debug.wasm32.wasm"
+web.release = "res://addons/terrain_3d/bin/libterrain.web.release.wasm32.wasm"

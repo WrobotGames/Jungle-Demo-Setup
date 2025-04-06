@@ -1,0 +1,1247 @@
+[gd_scene load_steps=97 format=3 uid="uid://b85c0wb2teut5"]
+
+[ext_resource type="Shader" uid="uid://bjkjhsep6l3gk" path="res://materials/ParticleGrass.gdshader" id="1_veb11"]
+[ext_resource type="Texture2D" uid="uid://djmwqvpfj1x67" path="res://scenes/jungleterrain/Wizard.exr" id="2_k1y4f"]
+[ext_resource type="Texture2D" uid="uid://bf8fs7x3f6op8" path="res://scenes/jungleterrain/Wizard.png" id="3_7fv2u"]
+[ext_resource type="Shader" uid="uid://ba21i31rkl3e6" path="res://materials/PlantsShader.tres" id="6_u38g1"]
+[ext_resource type="Texture2D" uid="uid://dlsmwq5roykvm" path="res://materials/WorldWindNoise.tres" id="7_ydmhv"]
+[ext_resource type="Texture2D" uid="uid://v2gpeornvrq" path="res://textures/noise.tres" id="11_vta3v"]
+[ext_resource type="Texture2D" uid="uid://cv64etoqiib8u" path="res://scenes/jungleterrain/Wizard2.jpg" id="17_rmo2r"]
+[ext_resource type="ArrayMesh" uid="uid://6lx74ryb35ek" path="res://packs/Cube.tres" id="31_15uh8"]
+[ext_resource type="Shader" uid="uid://juqerrwmrekt" path="res://materials/BillboardShader.tres" id="38_esf1v"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fh53k"]
+shader = ExtResource("1_veb11")
+shader_parameter/instance_rows1 = 32.0
+shader_parameter/radius1 = 32.0
+shader_parameter/map_heightmap = ExtResource("2_k1y4f")
+shader_parameter/map_mask = ExtResource("3_7fv2u")
+shader_parameter/noisemap = ExtResource("11_vta3v")
+shader_parameter/base_scale = Vector3(1.2, 1, 1.2)
+shader_parameter/height_offset = 0.0
+shader_parameter/map_heightmap_size = Vector2(1024, 1024)
+shader_parameter/__terrain_amplitude = 500.0
+shader_parameter/instance_pos_randomize = 0.611
+shader_parameter/random_seed = 0.621
+shader_parameter/extra_cull_margin = 2.0
+shader_parameter/close_cull = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dsj7e"]
+shader = ExtResource("1_veb11")
+shader_parameter/instance_rows1 = 32.0
+shader_parameter/radius1 = 32.0
+shader_parameter/map_heightmap = ExtResource("2_k1y4f")
+shader_parameter/map_mask = ExtResource("3_7fv2u")
+shader_parameter/noisemap = ExtResource("11_vta3v")
+shader_parameter/base_scale = Vector3(1.2, 1, 1.2)
+shader_parameter/height_offset = 0.0
+shader_parameter/map_heightmap_size = Vector2(1024, 1024)
+shader_parameter/__terrain_amplitude = 500.0
+shader_parameter/instance_pos_randomize = 1.0
+shader_parameter/random_seed = 0.841
+shader_parameter/extra_cull_margin = 2.0
+shader_parameter/close_cull = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p6ege"]
+shader = ExtResource("1_veb11")
+shader_parameter/instance_rows1 = 32.0
+shader_parameter/radius1 = 32.0
+shader_parameter/map_heightmap = ExtResource("2_k1y4f")
+shader_parameter/map_mask = ExtResource("3_7fv2u")
+shader_parameter/noisemap = ExtResource("11_vta3v")
+shader_parameter/base_scale = Vector3(1.2, 0.8, 1.2)
+shader_parameter/height_offset = 0.0
+shader_parameter/map_heightmap_size = Vector2(1024, 1024)
+shader_parameter/__terrain_amplitude = 500.0
+shader_parameter/instance_pos_randomize = 1.0
+shader_parameter/random_seed = 0.487
+shader_parameter/extra_cull_margin = 2.0
+shader_parameter/close_cull = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dov5x"]
+shader = ExtResource("1_veb11")
+shader_parameter/instance_rows1 = 32.0
+shader_parameter/radius1 = 32.0
+shader_parameter/map_heightmap = ExtResource("2_k1y4f")
+shader_parameter/map_mask = ExtResource("3_7fv2u")
+shader_parameter/noisemap = ExtResource("11_vta3v")
+shader_parameter/base_scale = Vector3(1.2, 1.2, 1.2)
+shader_parameter/height_offset = 0.0
+shader_parameter/map_heightmap_size = Vector2(1024, 1024)
+shader_parameter/__terrain_amplitude = 500.0
+shader_parameter/instance_pos_randomize = 1.0
+shader_parameter/random_seed = 0.827
+shader_parameter/extra_cull_margin = 2.0
+shader_parameter/close_cull = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_je1yn"]
+shader = ExtResource("1_veb11")
+shader_parameter/instance_rows1 = 32.0
+shader_parameter/radius1 = 32.0
+shader_parameter/map_heightmap = ExtResource("2_k1y4f")
+shader_parameter/map_mask = ExtResource("3_7fv2u")
+shader_parameter/noisemap = ExtResource("11_vta3v")
+shader_parameter/base_scale = Vector3(1, 1.2, 1)
+shader_parameter/height_offset = 0.0
+shader_parameter/map_heightmap_size = Vector2(1024, 1024)
+shader_parameter/__terrain_amplitude = 500.0
+shader_parameter/instance_pos_randomize = 1.0
+shader_parameter/random_seed = 0.058
+shader_parameter/extra_cull_margin = 2.0
+shader_parameter/close_cull = 0.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wen3k"]
+load_path = "res://.godot/imported/T_GroundCover_01_D.png-845a8e51f2ed5f5683c21707460658cd.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_akdyy"]
+load_path = "res://.godot/imported/T_GroundCover_01_N.png-4396861a2b79e3a9e1c13b58099e7776.s3tc.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xcdkq"]
+render_priority = 0
+shader = ExtResource("6_u38g1")
+shader_parameter/albedo = Color(0.758378, 0.949219, 0.548767, 1)
+shader_parameter/texture_albedo = SubResource("CompressedTexture2D_wen3k")
+shader_parameter/roughness = 0.528
+shader_parameter/WorldNoise = ExtResource("7_ydmhv")
+shader_parameter/specular = 0.3
+shader_parameter/texture_normal = SubResource("CompressedTexture2D_akdyy")
+shader_parameter/normal_scale = 1.0
+shader_parameter/backlight = Color(0.34902, 0.403922, 0.286275, 1)
+shader_parameter/sway_speed = 0.01
+shader_parameter/sway_strength = 0.1
+shader_parameter/is_plant = true
+shader_parameter/render_dist = 12.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6ilse"]
+shader = ExtResource("1_veb11")
+shader_parameter/instance_rows1 = 16.0
+shader_parameter/radius1 = 12.0
+shader_parameter/map_heightmap = ExtResource("2_k1y4f")
+shader_parameter/map_mask = ExtResource("3_7fv2u")
+shader_parameter/noisemap = ExtResource("11_vta3v")
+shader_parameter/base_scale = Vector3(2, 1.2, 2)
+shader_parameter/height_offset = 0.0
+shader_parameter/map_heightmap_size = Vector2(1024, 1024)
+shader_parameter/__terrain_amplitude = 500.0
+shader_parameter/instance_pos_randomize = 2.0
+shader_parameter/random_seed = 0.347
+shader_parameter/extra_cull_margin = 2.0
+shader_parameter/close_cull = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4xlh1"]
+shader = ExtResource("1_veb11")
+shader_parameter/instance_rows1 = 16.0
+shader_parameter/radius1 = 12.0
+shader_parameter/map_heightmap = ExtResource("2_k1y4f")
+shader_parameter/map_mask = ExtResource("3_7fv2u")
+shader_parameter/noisemap = ExtResource("11_vta3v")
+shader_parameter/base_scale = Vector3(2, 1.2, 2)
+shader_parameter/height_offset = 0.0
+shader_parameter/map_heightmap_size = Vector2(1024, 1024)
+shader_parameter/__terrain_amplitude = 500.0
+shader_parameter/instance_pos_randomize = 2.0
+shader_parameter/random_seed = 0.16
+shader_parameter/extra_cull_margin = 2.0
+shader_parameter/close_cull = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_egje3"]
+shader = ExtResource("1_veb11")
+shader_parameter/instance_rows1 = 16.0
+shader_parameter/radius1 = 12.0
+shader_parameter/map_heightmap = ExtResource("2_k1y4f")
+shader_parameter/map_mask = ExtResource("3_7fv2u")
+shader_parameter/noisemap = ExtResource("11_vta3v")
+shader_parameter/base_scale = Vector3(2, 1.2, 2)
+shader_parameter/height_offset = 0.0
+shader_parameter/map_heightmap_size = Vector2(1024, 1024)
+shader_parameter/__terrain_amplitude = 500.0
+shader_parameter/instance_pos_randomize = 2.0
+shader_parameter/random_seed = 0.208
+shader_parameter/extra_cull_margin = 2.0
+shader_parameter/close_cull = 0.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_u6xl8"]
+load_path = "res://.godot/imported/T_Vines_01_D.png-58fe0c4d71085f17e214a6b3e2fc268e.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_l6g8y"]
+load_path = "res://.godot/imported/T_Vines_01_N.png-f342d2b6878eb2b99afdb7002f7de3ec.s3tc.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xvm7h"]
+render_priority = 0
+shader = ExtResource("6_u38g1")
+shader_parameter/albedo = Color(0.632128, 0.753906, 0.556595, 1)
+shader_parameter/texture_albedo = SubResource("CompressedTexture2D_u6xl8")
+shader_parameter/roughness = 0.466
+shader_parameter/WorldNoise = ExtResource("7_ydmhv")
+shader_parameter/specular = 0.4
+shader_parameter/texture_normal = SubResource("CompressedTexture2D_l6g8y")
+shader_parameter/normal_scale = 1.0
+shader_parameter/backlight = Color(0.59845, 0.722656, 0.282288, 1)
+shader_parameter/sway_speed = 0.01
+shader_parameter/sway_strength = 0.1
+shader_parameter/is_plant = true
+shader_parameter/render_dist = 40.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c431r"]
+shader = ExtResource("1_veb11")
+shader_parameter/instance_rows1 = 16.0
+shader_parameter/radius1 = 40.0
+shader_parameter/map_heightmap = ExtResource("2_k1y4f")
+shader_parameter/map_mask = ExtResource("3_7fv2u")
+shader_parameter/noisemap = ExtResource("11_vta3v")
+shader_parameter/base_scale = Vector3(1.2, 1.2, 1.2)
+shader_parameter/height_offset = 0.0
+shader_parameter/map_heightmap_size = Vector2(1024, 1024)
+shader_parameter/__terrain_amplitude = 500.0
+shader_parameter/instance_pos_randomize = 4.856
+shader_parameter/random_seed = 0.75
+shader_parameter/extra_cull_margin = 2.0
+shader_parameter/close_cull = 0.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xgu0x"]
+load_path = "res://.godot/imported/T_TropicalFern_FO_D.png-80fefaa87d204d89295f550dc4efb3ad.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_73tjh"]
+load_path = "res://.godot/imported/T_TropicalFern_FO_N.png-eb99eb7082b651fde1905a4346c27476.s3tc.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i5l8k"]
+render_priority = 0
+shader = ExtResource("6_u38g1")
+shader_parameter/albedo = Color(0.745911, 0.789063, 0, 1)
+shader_parameter/texture_albedo = SubResource("CompressedTexture2D_xgu0x")
+shader_parameter/roughness = 0.349
+shader_parameter/WorldNoise = ExtResource("7_ydmhv")
+shader_parameter/specular = 0.4
+shader_parameter/texture_normal = SubResource("CompressedTexture2D_73tjh")
+shader_parameter/normal_scale = 1.0
+shader_parameter/backlight = Color(0.28125, 0.28125, 0.28125, 1)
+shader_parameter/sway_speed = 0.01
+shader_parameter/sway_strength = 0.1
+shader_parameter/is_plant = true
+shader_parameter/render_dist = 40.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2wt64"]
+shader = ExtResource("1_veb11")
+shader_parameter/instance_rows1 = 8.0
+shader_parameter/radius1 = 40.0
+shader_parameter/map_heightmap = ExtResource("2_k1y4f")
+shader_parameter/map_mask = ExtResource("17_rmo2r")
+shader_parameter/noisemap = ExtResource("11_vta3v")
+shader_parameter/base_scale = Vector3(1, 1, 1)
+shader_parameter/height_offset = 0.0
+shader_parameter/map_heightmap_size = Vector2(1024, 1024)
+shader_parameter/__terrain_amplitude = 500.0
+shader_parameter/instance_pos_randomize = 2.0
+shader_parameter/random_seed = 0.928
+shader_parameter/extra_cull_margin = 2.0
+shader_parameter/close_cull = 0.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5cb4v"]
+load_path = "res://.godot/imported/T_Fern_01_Imposter_D.png-0239cae41711c1ad68b87d0d97209d1a.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qpre0"]
+load_path = "res://.godot/imported/T_Fern_01_Imposter_N.png-2065057a660fde2d9fd4bdaae723b527.s3tc.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8phmn"]
+render_priority = 0
+shader = ExtResource("38_esf1v")
+shader_parameter/albedo = Color(1.4, 1.4, 1.4, 1)
+shader_parameter/texture_albedo = SubResource("CompressedTexture2D_5cb4v")
+shader_parameter/roughness = 0.8
+shader_parameter/texture_normal = SubResource("CompressedTexture2D_qpre0")
+shader_parameter/normal_scale = 2.0
+shader_parameter/uv1_scale = Vector3(0.25, 0.25, 0.25)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/plant = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y48fx"]
+shader = ExtResource("1_veb11")
+shader_parameter/instance_rows1 = 32.0
+shader_parameter/radius1 = 160.0
+shader_parameter/map_heightmap = ExtResource("2_k1y4f")
+shader_parameter/map_mask = ExtResource("17_rmo2r")
+shader_parameter/noisemap = ExtResource("11_vta3v")
+shader_parameter/base_scale = Vector3(1, 1, 1)
+shader_parameter/height_offset = 0.0
+shader_parameter/map_heightmap_size = Vector2(1024, 1024)
+shader_parameter/__terrain_amplitude = 500.0
+shader_parameter/instance_pos_randomize = 7.385
+shader_parameter/random_seed = 0.928
+shader_parameter/extra_cull_margin = 2.0
+shader_parameter/close_cull = 40.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_xlgk2"]
+size = Vector2(1.5, 1.5)
+center_offset = Vector3(0, 0.235, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3y757"]
+shader = ExtResource("1_veb11")
+shader_parameter/instance_rows1 = 8.0
+shader_parameter/radius1 = 40.0
+shader_parameter/map_heightmap = ExtResource("2_k1y4f")
+shader_parameter/map_mask = ExtResource("17_rmo2r")
+shader_parameter/noisemap = ExtResource("11_vta3v")
+shader_parameter/base_scale = Vector3(1, 1, 1)
+shader_parameter/height_offset = 0.0
+shader_parameter/map_heightmap_size = Vector2(1024, 1024)
+shader_parameter/__terrain_amplitude = 500.0
+shader_parameter/instance_pos_randomize = 7.231
+shader_parameter/random_seed = 0.683
+shader_parameter/extra_cull_margin = 2.0
+shader_parameter/close_cull = 0.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_55qe4"]
+load_path = "res://.godot/imported/T_Fern_02_Imposter_D.png-0637fabc3abd52f9ce3cd3b254f405dd.s3tc.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hipbd"]
+render_priority = 0
+shader = ExtResource("38_esf1v")
+shader_parameter/albedo = Color(1.4, 1.4, 1.4, 1)
+shader_parameter/texture_albedo = SubResource("CompressedTexture2D_55qe4")
+shader_parameter/roughness = 0.8
+shader_parameter/normal_scale = 2.85
+shader_parameter/uv1_scale = Vector3(0.25, 0.25, 0.25)
+shader_parameter/uv1_offset = Vector3(-0.06, 0, 0)
+shader_parameter/plant = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0himc"]
+shader = ExtResource("1_veb11")
+shader_parameter/instance_rows1 = 32.0
+shader_parameter/radius1 = 160.0
+shader_parameter/map_heightmap = ExtResource("2_k1y4f")
+shader_parameter/map_mask = ExtResource("17_rmo2r")
+shader_parameter/noisemap = ExtResource("11_vta3v")
+shader_parameter/base_scale = Vector3(1, 1, 1)
+shader_parameter/height_offset = 0.0
+shader_parameter/map_heightmap_size = Vector2(1024, 1024)
+shader_parameter/__terrain_amplitude = 500.0
+shader_parameter/instance_pos_randomize = 7.231
+shader_parameter/random_seed = 0.683
+shader_parameter/extra_cull_margin = 2.0
+shader_parameter/close_cull = 40.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_vxy0o"]
+size = Vector2(2, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w4ggq"]
+shader = ExtResource("1_veb11")
+shader_parameter/instance_rows1 = 8.0
+shader_parameter/radius1 = 40.0
+shader_parameter/map_heightmap = ExtResource("2_k1y4f")
+shader_parameter/map_mask = ExtResource("17_rmo2r")
+shader_parameter/noisemap = ExtResource("11_vta3v")
+shader_parameter/base_scale = Vector3(1, 1, 1)
+shader_parameter/height_offset = 0.0
+shader_parameter/map_heightmap_size = Vector2(1024, 1024)
+shader_parameter/__terrain_amplitude = 500.0
+shader_parameter/instance_pos_randomize = 5.702
+shader_parameter/random_seed = 0.587
+shader_parameter/extra_cull_margin = 2.0
+shader_parameter/close_cull = 0.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_quxel"]
+load_path = "res://.godot/imported/T_Fern_03_Imposter_D.png-10d1ef0ffd95a7f9ac0c977f5404947b.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xfef3"]
+load_path = "res://.godot/imported/T_Fern_03_Imposter_N.png-21a15e1be7c07d9c9f332e1af3b17545.s3tc.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ehcpd"]
+render_priority = 0
+shader = ExtResource("38_esf1v")
+shader_parameter/albedo = Color(1.4, 1.4, 1.4, 1)
+shader_parameter/texture_albedo = SubResource("CompressedTexture2D_quxel")
+shader_parameter/roughness = 0.8
+shader_parameter/texture_normal = SubResource("CompressedTexture2D_xfef3")
+shader_parameter/normal_scale = 2.0
+shader_parameter/uv1_scale = Vector3(0.25, 0.25, 0.25)
+shader_parameter/uv1_offset = Vector3(-0.045, 0, 0)
+shader_parameter/plant = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7vowm"]
+shader = ExtResource("1_veb11")
+shader_parameter/instance_rows1 = 32.0
+shader_parameter/radius1 = 160.0
+shader_parameter/map_heightmap = ExtResource("2_k1y4f")
+shader_parameter/map_mask = ExtResource("17_rmo2r")
+shader_parameter/noisemap = ExtResource("11_vta3v")
+shader_parameter/base_scale = Vector3(1, 1, 1)
+shader_parameter/height_offset = 0.0
+shader_parameter/map_heightmap_size = Vector2(1024, 1024)
+shader_parameter/__terrain_amplitude = 500.0
+shader_parameter/instance_pos_randomize = 5.702
+shader_parameter/random_seed = 0.587
+shader_parameter/extra_cull_margin = 2.0
+shader_parameter/close_cull = 40.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_dq1pq"]
+size = Vector2(1.2, 1.2)
+center_offset = Vector3(0, 0.065, 0)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_u8b3d"]
+load_path = "res://.godot/imported/T_Fern_01_FO_D.png-b4d949205f722a7a19406366e15cb5a0.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_il55e"]
+load_path = "res://.godot/imported/T_Fern_01_FO_N.png-43267e027ad5eb9688b44e6b5dfa0069.s3tc.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aw76j"]
+render_priority = 0
+shader = ExtResource("6_u38g1")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = SubResource("CompressedTexture2D_u8b3d")
+shader_parameter/roughness = 0.423
+shader_parameter/WorldNoise = ExtResource("7_ydmhv")
+shader_parameter/specular = 0.26
+shader_parameter/texture_normal = SubResource("CompressedTexture2D_il55e")
+shader_parameter/normal_scale = 1.0
+shader_parameter/backlight = Color(0.235294, 0.282353, 0.0980392, 1)
+shader_parameter/sway_speed = 0.01
+shader_parameter/sway_strength = 0.5
+shader_parameter/is_plant = true
+shader_parameter/render_dist = 40.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sl0dy"]
+shader = ExtResource("1_veb11")
+shader_parameter/instance_rows1 = 8.0
+shader_parameter/radius1 = 40.0
+shader_parameter/map_heightmap = ExtResource("2_k1y4f")
+shader_parameter/map_mask = ExtResource("17_rmo2r")
+shader_parameter/noisemap = ExtResource("11_vta3v")
+shader_parameter/base_scale = Vector3(1, 1, 1)
+shader_parameter/height_offset = 0.0
+shader_parameter/map_heightmap_size = Vector2(1024, 1024)
+shader_parameter/__terrain_amplitude = 500.0
+shader_parameter/instance_pos_randomize = 7.24
+shader_parameter/random_seed = 0.894
+shader_parameter/extra_cull_margin = 2.0
+shader_parameter/close_cull = 0.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_neb4j"]
+load_path = "res://.godot/imported/T_Fern_04_Imposter_D.png-cf88754ad71719f1d73129e785c57407.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ye4n1"]
+load_path = "res://.godot/imported/T_Fern_04_Imposter_N.png-696fe9e830cbaebc19c84f1e09742f88.s3tc.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y7do3"]
+render_priority = 0
+shader = ExtResource("38_esf1v")
+shader_parameter/albedo = Color(1.4, 1.4, 1.4, 1)
+shader_parameter/texture_albedo = SubResource("CompressedTexture2D_neb4j")
+shader_parameter/roughness = 0.8
+shader_parameter/texture_normal = SubResource("CompressedTexture2D_ye4n1")
+shader_parameter/normal_scale = 2.0
+shader_parameter/uv1_scale = Vector3(0.25, 0.25, 0.25)
+shader_parameter/uv1_offset = Vector3(-0.065, 0, 0)
+shader_parameter/plant = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oevwi"]
+shader = ExtResource("1_veb11")
+shader_parameter/instance_rows1 = 32.0
+shader_parameter/radius1 = 160.0
+shader_parameter/map_heightmap = ExtResource("2_k1y4f")
+shader_parameter/map_mask = ExtResource("17_rmo2r")
+shader_parameter/noisemap = ExtResource("11_vta3v")
+shader_parameter/base_scale = Vector3(1, 1, 1)
+shader_parameter/height_offset = 0.0
+shader_parameter/map_heightmap_size = Vector2(1024, 1024)
+shader_parameter/__terrain_amplitude = 500.0
+shader_parameter/instance_pos_randomize = 7.24
+shader_parameter/random_seed = 0.894
+shader_parameter/extra_cull_margin = 2.0
+shader_parameter/close_cull = 40.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_tmwov"]
+size = Vector2(4, 4)
+center_offset = Vector3(0, 0.74, 0)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ityi6"]
+load_path = "res://.godot/imported/T_Monstera_FO_D.png-8bfddffac69541cab4a7626ab67d31ac.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lj7hi"]
+load_path = "res://.godot/imported/T_Monstera_FO_N.png-6298483da9675d8773fc946071164eba.s3tc.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yenad"]
+render_priority = 0
+shader = ExtResource("6_u38g1")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = SubResource("CompressedTexture2D_ityi6")
+shader_parameter/roughness = 0.35
+shader_parameter/WorldNoise = ExtResource("7_ydmhv")
+shader_parameter/specular = 0.26
+shader_parameter/texture_normal = SubResource("CompressedTexture2D_lj7hi")
+shader_parameter/normal_scale = 1.0
+shader_parameter/backlight = Color(0.396078, 0.466667, 0.321569, 1)
+shader_parameter/sway_speed = 0.01
+shader_parameter/sway_strength = 0.1
+shader_parameter/is_plant = true
+shader_parameter/render_dist = 40.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pv2a5"]
+shader = ExtResource("1_veb11")
+shader_parameter/instance_rows1 = 8.0
+shader_parameter/radius1 = 40.0
+shader_parameter/map_heightmap = ExtResource("2_k1y4f")
+shader_parameter/map_mask = ExtResource("3_7fv2u")
+shader_parameter/noisemap = ExtResource("11_vta3v")
+shader_parameter/base_scale = Vector3(1, 1, 1)
+shader_parameter/height_offset = 0.0
+shader_parameter/map_heightmap_size = Vector2(1024, 1024)
+shader_parameter/__terrain_amplitude = 500.0
+shader_parameter/instance_pos_randomize = 7.865
+shader_parameter/random_seed = 0.51
+shader_parameter/extra_cull_margin = 2.0
+shader_parameter/close_cull = 0.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ka2mo"]
+load_path = "res://.godot/imported/T_Monstera_01_Imposter_D.png-9773750cb0cd9e163c22da687405a0fb.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_q3vls"]
+load_path = "res://.godot/imported/T_Monstera_01_Imposter_N.png-79b9587149e331face3a450a4372a4de.s3tc.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l6ql7"]
+render_priority = 0
+shader = ExtResource("38_esf1v")
+shader_parameter/albedo = Color(1.4, 1.4, 1.4, 1)
+shader_parameter/texture_albedo = SubResource("CompressedTexture2D_ka2mo")
+shader_parameter/roughness = 0.8
+shader_parameter/texture_normal = SubResource("CompressedTexture2D_q3vls")
+shader_parameter/normal_scale = 2.0
+shader_parameter/uv1_scale = Vector3(0.25, 0.25, 0.25)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/plant = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_urfcs"]
+shader = ExtResource("1_veb11")
+shader_parameter/instance_rows1 = 32.0
+shader_parameter/radius1 = 160.0
+shader_parameter/map_heightmap = ExtResource("2_k1y4f")
+shader_parameter/map_mask = ExtResource("3_7fv2u")
+shader_parameter/noisemap = ExtResource("11_vta3v")
+shader_parameter/base_scale = Vector3(1, 1, 1)
+shader_parameter/height_offset = 0.0
+shader_parameter/map_heightmap_size = Vector2(1024, 1024)
+shader_parameter/__terrain_amplitude = 500.0
+shader_parameter/instance_pos_randomize = 7.865
+shader_parameter/random_seed = 0.51
+shader_parameter/extra_cull_margin = 2.0
+shader_parameter/close_cull = 40.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_d2vai"]
+size = Vector2(2.5, 2.5)
+center_offset = Vector3(0, 0.545, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_swxyb"]
+shader = ExtResource("1_veb11")
+shader_parameter/instance_rows1 = 8.0
+shader_parameter/radius1 = 40.0
+shader_parameter/map_heightmap = ExtResource("2_k1y4f")
+shader_parameter/map_mask = ExtResource("3_7fv2u")
+shader_parameter/noisemap = ExtResource("11_vta3v")
+shader_parameter/base_scale = Vector3(1, 1, 1)
+shader_parameter/height_offset = 0.0
+shader_parameter/map_heightmap_size = Vector2(1024, 1024)
+shader_parameter/__terrain_amplitude = 500.0
+shader_parameter/instance_pos_randomize = 6.519
+shader_parameter/random_seed = 0.851
+shader_parameter/extra_cull_margin = 2.0
+shader_parameter/close_cull = 0.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cickm"]
+load_path = "res://.godot/imported/T_Monstera_02_Imposter_D.png-55201d0562ac88a1c48939a6ba52bdec.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n3m0w"]
+load_path = "res://.godot/imported/T_Monstera_02_Imposter_N.png-c0cdadf5bbd9989f8bffd16245885dfa.s3tc.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nnfmw"]
+render_priority = 0
+shader = ExtResource("38_esf1v")
+shader_parameter/albedo = Color(1.3, 1.3, 1.3, 1)
+shader_parameter/texture_albedo = SubResource("CompressedTexture2D_cickm")
+shader_parameter/roughness = 0.8
+shader_parameter/texture_normal = SubResource("CompressedTexture2D_n3m0w")
+shader_parameter/normal_scale = 2.0
+shader_parameter/uv1_scale = Vector3(0.25, 0.25, 0.25)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/plant = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qmujp"]
+shader = ExtResource("1_veb11")
+shader_parameter/instance_rows1 = 32.0
+shader_parameter/radius1 = 160.0
+shader_parameter/map_heightmap = ExtResource("2_k1y4f")
+shader_parameter/map_mask = ExtResource("3_7fv2u")
+shader_parameter/noisemap = ExtResource("11_vta3v")
+shader_parameter/base_scale = Vector3(1, 1, 1)
+shader_parameter/height_offset = 0.0
+shader_parameter/map_heightmap_size = Vector2(1024, 1024)
+shader_parameter/__terrain_amplitude = 500.0
+shader_parameter/instance_pos_randomize = 6.519
+shader_parameter/random_seed = 0.851
+shader_parameter/extra_cull_margin = 2.0
+shader_parameter/close_cull = 40.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_pnb05"]
+size = Vector2(1.7, 1.7)
+center_offset = Vector3(0.355, 0.35, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h03jt"]
+shader = ExtResource("1_veb11")
+shader_parameter/instance_rows1 = 8.0
+shader_parameter/radius1 = 40.0
+shader_parameter/map_heightmap = ExtResource("2_k1y4f")
+shader_parameter/map_mask = ExtResource("3_7fv2u")
+shader_parameter/noisemap = ExtResource("11_vta3v")
+shader_parameter/base_scale = Vector3(1, 1, 1)
+shader_parameter/height_offset = 0.0
+shader_parameter/map_heightmap_size = Vector2(1024, 1024)
+shader_parameter/__terrain_amplitude = 500.0
+shader_parameter/instance_pos_randomize = 4.355
+shader_parameter/random_seed = 0.316
+shader_parameter/extra_cull_margin = 2.0
+shader_parameter/close_cull = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ywg8p"]
+shader = ExtResource("1_veb11")
+shader_parameter/instance_rows1 = 8.0
+shader_parameter/radius1 = 40.0
+shader_parameter/map_heightmap = ExtResource("2_k1y4f")
+shader_parameter/map_mask = ExtResource("3_7fv2u")
+shader_parameter/noisemap = ExtResource("11_vta3v")
+shader_parameter/base_scale = Vector3(1, 1, 1)
+shader_parameter/height_offset = 0.0
+shader_parameter/map_heightmap_size = Vector2(1024, 1024)
+shader_parameter/__terrain_amplitude = 500.0
+shader_parameter/instance_pos_randomize = 5.413
+shader_parameter/random_seed = 0.75
+shader_parameter/extra_cull_margin = 2.0
+shader_parameter/close_cull = 0.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6wnnt"]
+load_path = "res://.godot/imported/T_RedGinger_D.png-c5bc6183fa545b018e8a4663019f8dd7.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_58aga"]
+load_path = "res://.godot/imported/T_RedGinger_N.png-4a1d7fc05ed3249cc57a97d389f37cd7.s3tc.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_onbam"]
+render_priority = 0
+shader = ExtResource("6_u38g1")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = SubResource("CompressedTexture2D_6wnnt")
+shader_parameter/roughness = 0.35
+shader_parameter/WorldNoise = ExtResource("7_ydmhv")
+shader_parameter/specular = 0.15
+shader_parameter/texture_normal = SubResource("CompressedTexture2D_58aga")
+shader_parameter/normal_scale = 1.0
+shader_parameter/backlight = Color(0.345098, 0.435294, 0.231373, 1)
+shader_parameter/sway_speed = 0.01
+shader_parameter/sway_strength = 0.1
+shader_parameter/is_plant = true
+shader_parameter/render_dist = 40.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uvp8o"]
+shader = ExtResource("1_veb11")
+shader_parameter/instance_rows1 = 8.0
+shader_parameter/radius1 = 40.0
+shader_parameter/map_heightmap = ExtResource("2_k1y4f")
+shader_parameter/map_mask = ExtResource("3_7fv2u")
+shader_parameter/noisemap = ExtResource("11_vta3v")
+shader_parameter/base_scale = Vector3(1, 1, 1)
+shader_parameter/height_offset = 0.0
+shader_parameter/map_heightmap_size = Vector2(1024, 1024)
+shader_parameter/__terrain_amplitude = 500.0
+shader_parameter/instance_pos_randomize = 7.115
+shader_parameter/random_seed = 0.755
+shader_parameter/extra_cull_margin = 2.0
+shader_parameter/close_cull = 0.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bf42i"]
+load_path = "res://.godot/imported/T_RedGinger_01_Imposter_D.png-b4b06941016cf15b3f605a353287cf8a.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_an5so"]
+load_path = "res://.godot/imported/T_RedGinger_01_Imposter_N.png-6eabf34d02e026e29c053602d5c0d965.s3tc.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2p5jc"]
+render_priority = 0
+shader = ExtResource("38_esf1v")
+shader_parameter/albedo = Color(1.3, 1.4, 1.3, 1)
+shader_parameter/texture_albedo = SubResource("CompressedTexture2D_bf42i")
+shader_parameter/roughness = 0.8
+shader_parameter/texture_normal = SubResource("CompressedTexture2D_an5so")
+shader_parameter/normal_scale = 1.717
+shader_parameter/uv1_scale = Vector3(0.25, 0.25, 0.25)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/plant = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e3exp"]
+shader = ExtResource("1_veb11")
+shader_parameter/instance_rows1 = 32.0
+shader_parameter/radius1 = 160.0
+shader_parameter/map_heightmap = ExtResource("2_k1y4f")
+shader_parameter/map_mask = ExtResource("3_7fv2u")
+shader_parameter/noisemap = ExtResource("11_vta3v")
+shader_parameter/base_scale = Vector3(1, 1, 1)
+shader_parameter/height_offset = 0.0
+shader_parameter/map_heightmap_size = Vector2(1024, 1024)
+shader_parameter/__terrain_amplitude = 500.0
+shader_parameter/instance_pos_randomize = 7.115
+shader_parameter/random_seed = 0.755
+shader_parameter/extra_cull_margin = 2.0
+shader_parameter/close_cull = 40.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_7f51o"]
+size = Vector2(2, 2)
+center_offset = Vector3(0.29, 0.905, 0.045)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w4yb8"]
+shader = ExtResource("1_veb11")
+shader_parameter/instance_rows1 = 8.0
+shader_parameter/radius1 = 40.0
+shader_parameter/map_heightmap = ExtResource("2_k1y4f")
+shader_parameter/map_mask = ExtResource("3_7fv2u")
+shader_parameter/noisemap = ExtResource("11_vta3v")
+shader_parameter/base_scale = Vector3(1, 1, 1)
+shader_parameter/height_offset = 0.0
+shader_parameter/map_heightmap_size = Vector2(1024, 1024)
+shader_parameter/__terrain_amplitude = 500.0
+shader_parameter/instance_pos_randomize = 10.0
+shader_parameter/random_seed = 0.945
+shader_parameter/extra_cull_margin = 2.0
+shader_parameter/close_cull = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5wj6b"]
+shader = ExtResource("1_veb11")
+shader_parameter/instance_rows1 = 8.0
+shader_parameter/radius1 = 40.0
+shader_parameter/map_heightmap = ExtResource("2_k1y4f")
+shader_parameter/map_mask = ExtResource("3_7fv2u")
+shader_parameter/noisemap = ExtResource("11_vta3v")
+shader_parameter/base_scale = Vector3(1, 1, 1)
+shader_parameter/height_offset = 0.0
+shader_parameter/map_heightmap_size = Vector2(1024, 1024)
+shader_parameter/__terrain_amplitude = 500.0
+shader_parameter/instance_pos_randomize = 10.0
+shader_parameter/random_seed = 0.247
+shader_parameter/extra_cull_margin = 2.0
+shader_parameter/close_cull = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_44kvj"]
+shader = ExtResource("1_veb11")
+shader_parameter/instance_rows1 = 8.0
+shader_parameter/radius1 = 10.0
+shader_parameter/map_heightmap = ExtResource("2_k1y4f")
+shader_parameter/map_mask = ExtResource("3_7fv2u")
+shader_parameter/noisemap = ExtResource("11_vta3v")
+shader_parameter/base_scale = Vector3(1, 1, 1)
+shader_parameter/height_offset = 0.0
+shader_parameter/map_heightmap_size = Vector2(1024, 1024)
+shader_parameter/__terrain_amplitude = 500.0
+shader_parameter/instance_pos_randomize = 1.0
+shader_parameter/random_seed = 0.385
+shader_parameter/extra_cull_margin = 2.0
+shader_parameter/close_cull = 0.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wwboi"]
+load_path = "res://.godot/imported/T_TaroPlant_01_D.png-74d1aeae3c94ff49ce939a1c0694b9ea.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mxmig"]
+load_path = "res://.godot/imported/T_TaroPlant_01_N.png-2a0b87224c9db4f74705749df264409b.s3tc.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bd4ds"]
+render_priority = 0
+shader = ExtResource("6_u38g1")
+shader_parameter/albedo = Color(0.773455, 0.84375, 0.71521, 1)
+shader_parameter/texture_albedo = SubResource("CompressedTexture2D_wwboi")
+shader_parameter/roughness = 0.416
+shader_parameter/WorldNoise = ExtResource("7_ydmhv")
+shader_parameter/specular = 0.3
+shader_parameter/texture_normal = SubResource("CompressedTexture2D_mxmig")
+shader_parameter/normal_scale = 1.0
+shader_parameter/backlight = Color(0.544325, 0.558594, 0.49968, 1)
+shader_parameter/sway_speed = 0.01
+shader_parameter/sway_strength = 0.1
+shader_parameter/is_plant = true
+shader_parameter/render_dist = 40.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ycm27"]
+shader = ExtResource("1_veb11")
+shader_parameter/instance_rows1 = 8.0
+shader_parameter/radius1 = 40.0
+shader_parameter/map_heightmap = ExtResource("2_k1y4f")
+shader_parameter/map_mask = ExtResource("17_rmo2r")
+shader_parameter/noisemap = ExtResource("11_vta3v")
+shader_parameter/base_scale = Vector3(1, 1, 1)
+shader_parameter/height_offset = 0.0
+shader_parameter/map_heightmap_size = Vector2(1024, 1024)
+shader_parameter/__terrain_amplitude = 500.0
+shader_parameter/instance_pos_randomize = 10.0
+shader_parameter/random_seed = 0.168
+shader_parameter/extra_cull_margin = 2.0
+shader_parameter/close_cull = 0.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_diynx"]
+load_path = "res://.godot/imported/T_TaroPlant_01_Imposter_D.png-8cac41b6567463c9ae52429357411ba2.s3tc.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_whk5c"]
+render_priority = 0
+shader = ExtResource("38_esf1v")
+shader_parameter/albedo = Color(1.4, 1.4, 1.3, 1)
+shader_parameter/texture_albedo = SubResource("CompressedTexture2D_diynx")
+shader_parameter/roughness = 0.686
+shader_parameter/normal_scale = 1.416
+shader_parameter/uv1_scale = Vector3(0.25, 0.25, 0.25)
+shader_parameter/uv1_offset = Vector3(-0.055, 0.08, 0)
+shader_parameter/plant = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aniwu"]
+shader = ExtResource("1_veb11")
+shader_parameter/instance_rows1 = 32.0
+shader_parameter/radius1 = 160.0
+shader_parameter/map_heightmap = ExtResource("2_k1y4f")
+shader_parameter/map_mask = ExtResource("17_rmo2r")
+shader_parameter/noisemap = ExtResource("11_vta3v")
+shader_parameter/base_scale = Vector3(1, 1, 1)
+shader_parameter/height_offset = 0.0
+shader_parameter/map_heightmap_size = Vector2(1024, 1024)
+shader_parameter/__terrain_amplitude = 500.0
+shader_parameter/instance_pos_randomize = 10.0
+shader_parameter/random_seed = 0.168
+shader_parameter/extra_cull_margin = 2.0
+shader_parameter/close_cull = 40.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_uxf6m"]
+size = Vector2(2, 2)
+center_offset = Vector3(0, -0.305, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_325bk"]
+shader = ExtResource("1_veb11")
+shader_parameter/instance_rows1 = 8.0
+shader_parameter/radius1 = 40.0
+shader_parameter/map_heightmap = ExtResource("2_k1y4f")
+shader_parameter/map_mask = ExtResource("17_rmo2r")
+shader_parameter/noisemap = ExtResource("11_vta3v")
+shader_parameter/base_scale = Vector3(1, 1, 1)
+shader_parameter/height_offset = 0.0
+shader_parameter/map_heightmap_size = Vector2(1024, 1024)
+shader_parameter/__terrain_amplitude = 500.0
+shader_parameter/instance_pos_randomize = 7.596
+shader_parameter/random_seed = 0.472
+shader_parameter/extra_cull_margin = 2.0
+shader_parameter/close_cull = 0.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xyckc"]
+load_path = "res://.godot/imported/T_TaroPlant_02_Imposter_D.png-d57f9f1d9dc4cb35a7d793224080e171.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bidib"]
+load_path = "res://.godot/imported/T_TaroPlant_02_Imposter_N.png-635594f78dbd785dec06bf1165372c97.s3tc.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2ftue"]
+render_priority = 0
+shader = ExtResource("38_esf1v")
+shader_parameter/albedo = Color(1.4, 1.4, 1.2, 1)
+shader_parameter/texture_albedo = SubResource("CompressedTexture2D_xyckc")
+shader_parameter/roughness = 0.69
+shader_parameter/texture_normal = SubResource("CompressedTexture2D_bidib")
+shader_parameter/normal_scale = 2.0
+shader_parameter/uv1_scale = Vector3(0.25, 0.25, 0.25)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/plant = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_so8cy"]
+shader = ExtResource("1_veb11")
+shader_parameter/instance_rows1 = 32.0
+shader_parameter/radius1 = 160.0
+shader_parameter/map_heightmap = ExtResource("2_k1y4f")
+shader_parameter/map_mask = ExtResource("17_rmo2r")
+shader_parameter/noisemap = ExtResource("11_vta3v")
+shader_parameter/base_scale = Vector3(1, 1, 1)
+shader_parameter/height_offset = 0.0
+shader_parameter/map_heightmap_size = Vector2(1024, 1024)
+shader_parameter/__terrain_amplitude = 500.0
+shader_parameter/instance_pos_randomize = 7.596
+shader_parameter/random_seed = 0.472
+shader_parameter/extra_cull_margin = 2.0
+shader_parameter/close_cull = 40.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_r0itm"]
+size = Vector2(2, 2)
+center_offset = Vector3(0, 0.5, 0)
+
+[node name="vegetation" type="Node3D"]
+
+[node name="grass" type="GPUParticles3D" parent="." groups=["g_s", "grass"]]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+amount = 1600
+lifetime = 0.1
+explosiveness = 1.0
+visibility_aabb = AABB(-1000, -1000, -1000, 2000, 2000, 2000)
+draw_order = 3
+process_material = SubResource("ShaderMaterial_fh53k")
+draw_pass_1 = ExtResource("31_15uh8")
+metadata/p_amount = 1600.0
+
+[node name="grass2" type="GPUParticles3D" parent="." groups=["g_s", "grass"]]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+amount = 1600
+lifetime = 0.1
+explosiveness = 1.0
+visibility_aabb = AABB(-1000, -1000, -1000, 2000, 2000, 2000)
+draw_order = 3
+process_material = SubResource("ShaderMaterial_dsj7e")
+draw_pass_1 = ExtResource("31_15uh8")
+metadata/p_amount = 1600.0
+
+[node name="grass3" type="GPUParticles3D" parent="." groups=["g_s", "grass"]]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+amount = 1600
+lifetime = 0.1
+explosiveness = 1.0
+visibility_aabb = AABB(-1000, -1000, -1000, 2000, 2000, 2000)
+draw_order = 3
+process_material = SubResource("ShaderMaterial_p6ege")
+draw_pass_1 = ExtResource("31_15uh8")
+metadata/p_amount = 1600.0
+
+[node name="grass4" type="GPUParticles3D" parent="." groups=["g_s", "grass"]]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+amount = 1600
+lifetime = 0.1
+explosiveness = 1.0
+visibility_aabb = AABB(-1000, -1000, -1000, 2000, 2000, 2000)
+draw_order = 3
+process_material = SubResource("ShaderMaterial_dov5x")
+draw_pass_1 = ExtResource("31_15uh8")
+metadata/p_amount = 1600.0
+
+[node name="grass5" type="GPUParticles3D" parent="." groups=["g_s", "grass"]]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+amount = 1600
+lifetime = 0.1
+explosiveness = 1.0
+visibility_aabb = AABB(-1000, -1000, -1000, 2000, 2000, 2000)
+draw_order = 3
+process_material = SubResource("ShaderMaterial_je1yn")
+draw_pass_1 = ExtResource("31_15uh8")
+metadata/p_amount = 1600.0
+
+[node name="groundclover_1" type="GPUParticles3D" parent="." groups=["g_s", "grass"]]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_xcdkq")
+amount = 256
+lifetime = 0.1
+explosiveness = 1.0
+visibility_aabb = AABB(-1000, -1000, -1000, 2000, 2000, 2000)
+draw_order = 3
+process_material = SubResource("ShaderMaterial_6ilse")
+draw_pass_1 = ExtResource("31_15uh8")
+metadata/p_amount = 256.0
+
+[node name="groundclover_2" type="GPUParticles3D" parent="." groups=["g_s", "grass"]]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_xcdkq")
+amount = 256
+lifetime = 0.1
+explosiveness = 1.0
+visibility_aabb = AABB(-1000, -1000, -1000, 2000, 2000, 2000)
+draw_order = 3
+process_material = SubResource("ShaderMaterial_4xlh1")
+draw_pass_1 = ExtResource("31_15uh8")
+metadata/p_amount = 256.0
+
+[node name="groundclover_3" type="GPUParticles3D" parent="." groups=["g_s", "grass"]]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_xcdkq")
+amount = 256
+lifetime = 0.1
+explosiveness = 1.0
+visibility_aabb = AABB(-1000, -1000, -1000, 2000, 2000, 2000)
+draw_order = 3
+process_material = SubResource("ShaderMaterial_egje3")
+draw_pass_1 = ExtResource("31_15uh8")
+metadata/p_amount = 256.0
+
+[node name="groundclover_4" type="GPUParticles3D" parent="." groups=["g_s", "grass"]]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_xvm7h")
+amount = 256
+lifetime = 0.1
+explosiveness = 1.0
+visibility_aabb = AABB(-1000, -1000, -1000, 2000, 2000, 2000)
+draw_order = 3
+process_material = SubResource("ShaderMaterial_c431r")
+draw_pass_1 = ExtResource("31_15uh8")
+metadata/p_amount = 256.0
+
+[node name="plants_1" type="GPUParticles3D" parent="." groups=["grass"]]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_i5l8k")
+amount = 64
+lifetime = 0.1
+explosiveness = 1.0
+visibility_aabb = AABB(-1000, -1000, -1000, 2000, 2000, 2000)
+draw_order = 3
+process_material = SubResource("ShaderMaterial_2wt64")
+draw_pass_1 = ExtResource("31_15uh8")
+metadata/p_amount = 64.0
+
+[node name="plants_1_imp" type="GPUParticles3D" parent="." groups=["grass"]]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_8phmn")
+amount = 1024
+lifetime = 0.1
+explosiveness = 1.0
+visibility_aabb = AABB(-1000, -1000, -1000, 2000, 2000, 2000)
+draw_order = 3
+process_material = SubResource("ShaderMaterial_y48fx")
+draw_pass_1 = SubResource("QuadMesh_xlgk2")
+metadata/p_amount = 1024.0
+
+[node name="plants_2" type="GPUParticles3D" parent="." groups=["grass"]]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_i5l8k")
+amount = 64
+lifetime = 0.1
+explosiveness = 1.0
+visibility_aabb = AABB(-1000, -1000, -1000, 2000, 2000, 2000)
+draw_order = 3
+process_material = SubResource("ShaderMaterial_3y757")
+draw_pass_1 = ExtResource("31_15uh8")
+metadata/p_amount = 64.0
+
+[node name="plants_2_imp" type="GPUParticles3D" parent="." groups=["grass"]]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_hipbd")
+amount = 1024
+lifetime = 0.1
+explosiveness = 1.0
+visibility_aabb = AABB(-1000, -1000, -1000, 2000, 2000, 2000)
+draw_order = 3
+process_material = SubResource("ShaderMaterial_0himc")
+draw_pass_1 = SubResource("QuadMesh_vxy0o")
+metadata/p_amount = 1024.0
+
+[node name="plants_3" type="GPUParticles3D" parent="." groups=["grass"]]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_i5l8k")
+amount = 64
+lifetime = 0.1
+explosiveness = 1.0
+visibility_aabb = AABB(-1000, -1000, -1000, 2000, 2000, 2000)
+draw_order = 3
+process_material = SubResource("ShaderMaterial_w4ggq")
+draw_pass_1 = ExtResource("31_15uh8")
+metadata/p_amount = 64.0
+
+[node name="plants_3_imp" type="GPUParticles3D" parent="." groups=["grass"]]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_ehcpd")
+amount = 1024
+lifetime = 0.1
+explosiveness = 1.0
+visibility_aabb = AABB(-1000, -1000, -1000, 2000, 2000, 2000)
+draw_order = 3
+process_material = SubResource("ShaderMaterial_7vowm")
+draw_pass_1 = SubResource("QuadMesh_dq1pq")
+metadata/p_amount = 1024.0
+
+[node name="plants_4" type="GPUParticles3D" parent="." groups=["grass"]]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_aw76j")
+amount = 64
+lifetime = 0.1
+explosiveness = 1.0
+visibility_aabb = AABB(-1000, -1000, -1000, 2000, 2000, 2000)
+draw_order = 3
+process_material = SubResource("ShaderMaterial_sl0dy")
+draw_pass_1 = ExtResource("31_15uh8")
+metadata/p_amount = 64.0
+
+[node name="plants_4_imp" type="GPUParticles3D" parent="." groups=["grass"]]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_y7do3")
+amount = 1024
+lifetime = 0.1
+explosiveness = 1.0
+visibility_aabb = AABB(-1000, -1000, -1000, 2000, 2000, 2000)
+draw_order = 3
+process_material = SubResource("ShaderMaterial_oevwi")
+draw_pass_1 = SubResource("QuadMesh_tmwov")
+metadata/p_amount = 1024.0
+
+[node name="plants_5" type="GPUParticles3D" parent="." groups=["grass"]]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_yenad")
+amount = 64
+lifetime = 0.1
+explosiveness = 1.0
+visibility_aabb = AABB(-1000, -1000, -1000, 2000, 2000, 2000)
+draw_order = 3
+process_material = SubResource("ShaderMaterial_pv2a5")
+draw_pass_1 = ExtResource("31_15uh8")
+metadata/p_amount = 64.0
+
+[node name="plants_5_imp" type="GPUParticles3D" parent="." groups=["grass"]]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_l6ql7")
+amount = 1024
+lifetime = 0.1
+explosiveness = 1.0
+visibility_aabb = AABB(-1000, -1000, -1000, 2000, 2000, 2000)
+draw_order = 3
+process_material = SubResource("ShaderMaterial_urfcs")
+draw_pass_1 = SubResource("QuadMesh_d2vai")
+metadata/p_amount = 1024.0
+
+[node name="plants_6" type="GPUParticles3D" parent="." groups=["grass"]]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_yenad")
+amount = 64
+lifetime = 0.1
+explosiveness = 1.0
+visibility_aabb = AABB(-1000, -1000, -1000, 2000, 2000, 2000)
+draw_order = 3
+process_material = SubResource("ShaderMaterial_swxyb")
+draw_pass_1 = ExtResource("31_15uh8")
+metadata/p_amount = 64.0
+
+[node name="plants_6_imp" type="GPUParticles3D" parent="." groups=["grass"]]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_nnfmw")
+amount = 1024
+lifetime = 0.1
+explosiveness = 1.0
+visibility_aabb = AABB(-1000, -1000, -1000, 2000, 2000, 2000)
+draw_order = 3
+process_material = SubResource("ShaderMaterial_qmujp")
+draw_pass_1 = SubResource("QuadMesh_pnb05")
+metadata/p_amount = 1024.0
+
+[node name="plants_7" type="GPUParticles3D" parent="." groups=["grass"]]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_xvm7h")
+amount = 64
+lifetime = 0.1
+explosiveness = 1.0
+visibility_aabb = AABB(-1000, -1000, -1000, 2000, 2000, 2000)
+draw_order = 3
+process_material = SubResource("ShaderMaterial_h03jt")
+draw_pass_1 = ExtResource("31_15uh8")
+metadata/p_amount = 64.0
+
+[node name="plants_8" type="GPUParticles3D" parent="." groups=["grass"]]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_xvm7h")
+amount = 64
+lifetime = 0.1
+explosiveness = 1.0
+visibility_aabb = AABB(-1000, -1000, -1000, 2000, 2000, 2000)
+draw_order = 3
+process_material = SubResource("ShaderMaterial_ywg8p")
+draw_pass_1 = ExtResource("31_15uh8")
+metadata/p_amount = 64.0
+
+[node name="plants_10" type="GPUParticles3D" parent="." groups=["grass"]]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_onbam")
+amount = 64
+lifetime = 0.1
+explosiveness = 1.0
+visibility_aabb = AABB(-1000, -1000, -1000, 2000, 2000, 2000)
+draw_order = 3
+process_material = SubResource("ShaderMaterial_uvp8o")
+draw_pass_1 = ExtResource("31_15uh8")
+metadata/p_amount = 64.0
+
+[node name="plants_10_imp" type="GPUParticles3D" parent="." groups=["grass"]]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_2p5jc")
+amount = 1024
+lifetime = 0.1
+explosiveness = 1.0
+visibility_aabb = AABB(-1000, -1000, -1000, 2000, 2000, 2000)
+draw_order = 3
+process_material = SubResource("ShaderMaterial_e3exp")
+draw_pass_1 = SubResource("QuadMesh_7f51o")
+metadata/p_amount = 1024.0
+
+[node name="plants_11" type="GPUParticles3D" parent="." groups=["grass"]]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_onbam")
+amount = 64
+lifetime = 0.1
+explosiveness = 1.0
+visibility_aabb = AABB(-1000, -1000, -1000, 2000, 2000, 2000)
+draw_order = 3
+process_material = SubResource("ShaderMaterial_w4yb8")
+draw_pass_1 = ExtResource("31_15uh8")
+metadata/p_amount = 64.0
+
+[node name="plants_12" type="GPUParticles3D" parent="." groups=["grass"]]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_onbam")
+amount = 64
+lifetime = 0.1
+explosiveness = 1.0
+visibility_aabb = AABB(-1000, -1000, -1000, 2000, 2000, 2000)
+draw_order = 3
+process_material = SubResource("ShaderMaterial_5wj6b")
+draw_pass_1 = ExtResource("31_15uh8")
+metadata/p_amount = 64.0
+
+[node name="plants_13_l" type="GPUParticles3D" parent="." groups=["g_s", "grass"]]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_xcdkq")
+amount = 64
+lifetime = 0.1
+explosiveness = 1.0
+visibility_aabb = AABB(-1000, -1000, -1000, 2000, 2000, 2000)
+draw_order = 3
+process_material = SubResource("ShaderMaterial_44kvj")
+draw_pass_1 = ExtResource("31_15uh8")
+metadata/p_amount = 64.0
+
+[node name="plants_14" type="GPUParticles3D" parent="." groups=["grass"]]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_bd4ds")
+amount = 64
+lifetime = 0.1
+explosiveness = 1.0
+visibility_aabb = AABB(-1000, -1000, -1000, 2000, 2000, 2000)
+draw_order = 3
+process_material = SubResource("ShaderMaterial_ycm27")
+draw_pass_1 = ExtResource("31_15uh8")
+metadata/p_amount = 64.0
+
+[node name="plants_14_imp" type="GPUParticles3D" parent="." groups=["grass"]]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_whk5c")
+amount = 1024
+lifetime = 0.1
+explosiveness = 1.0
+visibility_aabb = AABB(-1000, -1000, -1000, 2000, 2000, 2000)
+draw_order = 3
+process_material = SubResource("ShaderMaterial_aniwu")
+draw_pass_1 = SubResource("QuadMesh_uxf6m")
+metadata/p_amount = 1024.0
+
+[node name="plants_15" type="GPUParticles3D" parent="." groups=["grass"]]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_bd4ds")
+amount = 64
+lifetime = 0.1
+explosiveness = 1.0
+visibility_aabb = AABB(-1000, -1000, -1000, 2000, 2000, 2000)
+draw_order = 3
+process_material = SubResource("ShaderMaterial_325bk")
+draw_pass_1 = ExtResource("31_15uh8")
+metadata/p_amount = 64.0
+
+[node name="plants_15_imp" type="GPUParticles3D" parent="." groups=["grass"]]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_2ftue")
+amount = 1024
+lifetime = 0.1
+explosiveness = 1.0
+visibility_aabb = AABB(-1000, -1000, -1000, 2000, 2000, 2000)
+draw_order = 3
+process_material = SubResource("ShaderMaterial_so8cy")
+draw_pass_1 = SubResource("QuadMesh_r0itm")
+metadata/p_amount = 1024.0

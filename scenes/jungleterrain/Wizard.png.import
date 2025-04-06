@@ -3,26 +3,27 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bf8fs7x3f6op8"
-path.s3tc="res://.godot/imported/Wizard.png-93c772ed6ac1b51fc4a77f805ccd5781.s3tc.ctex"
+path.bptc="res://.godot/imported/Wizard.png-93c772ed6ac1b51fc4a77f805ccd5781.bptc.ctex"
+path.astc="res://.godot/imported/Wizard.png-93c772ed6ac1b51fc4a77f805ccd5781.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://scenes/jungleterrain/Wizard.png"
-dest_files=["res://.godot/imported/Wizard.png-93c772ed6ac1b51fc4a77f805ccd5781.s3tc.ctex"]
+dest_files=["res://.godot/imported/Wizard.png-93c772ed6ac1b51fc4a77f805ccd5781.bptc.ctex", "res://.godot/imported/Wizard.png-93c772ed6ac1b51fc4a77f805ccd5781.astc.ctex"]
 
 [params]
 
 compress/mode=2
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

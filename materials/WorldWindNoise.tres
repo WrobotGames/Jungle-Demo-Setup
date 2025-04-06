@@ -3,5 +3,6 @@
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ry1e3"]
 
 [resource]
+generate_mipmaps = false
 seamless = true
 noise = SubResource("FastNoiseLite_ry1e3")

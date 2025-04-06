@@ -3,7 +3,7 @@
 
 
 
-IMPORTANT: Project developed in Godot 4.2 DEV 6 (NEWER MAY NOT WORK)
+IMPORTANT: Project developed in Godot 4.4.1 (Older or Newer may not work!)
 
 The source code for my jungle demo scene with all copyrighted material removed. 
 Things removed: all jungle 3D models and textures, font used for gui. Meshes have been replaced with cubes. 
@@ -22,6 +22,7 @@ MIT Licence by hungeryproton and tokisangames. https://github.com/HungryProton/s
 
 ## The 2 music files and the textures: 
 CC0, from polyhaven, ambientCG and OpenGameArt
+While the license allows it, I suggest getting these files from their original source when using them outside of this demo.
 
 ## Icon.svg: 
 

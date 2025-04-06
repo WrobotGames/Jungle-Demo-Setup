@@ -4,67 +4,89 @@
 code = "// NOTE: Shader automatically converted from Godot Engine 4.2.dev3's StandardMaterial3D.
 
 shader_type spatial;
-render_mode blend_mix,depth_draw_opaque, cull_disabled,diffuse_burley,specular_schlick_ggx;
-uniform vec4 albedo : source_color;
+render_mode blend_mix,depth_draw_opaque, cull_disabled,diffuse_lambert_wrap,specular_schlick_ggx;
+uniform vec4 albedo : source_color = vec4(1.,1.,1.,1.);
 uniform sampler2D texture_albedo : source_color,filter_linear_mipmap,repeat_enable;
-uniform float alpha_scissor_threshold;
-uniform float point_size : hint_range(0,128);
-uniform float roughness : hint_range(0,1);
-uniform sampler2D texture_metallic : hint_default_white,filter_linear_mipmap,repeat_enable;
-uniform vec4 metallic_texture_channel;
-uniform sampler2D texture_roughness : hint_roughness_r,filter_linear_mipmap,repeat_enable;
-uniform float specular;
-uniform float metallic;
+uniform float roughness : hint_range(0,1) = 0.8;
 uniform sampler2D texture_normal : hint_roughness_normal,filter_linear_mipmap,repeat_enable;
-uniform float normal_scale : hint_range(-16,16);
-uniform vec4 backlight : source_color;
-uniform sampler2D texture_backlight : hint_default_black,filter_linear_mipmap,repeat_enable;
-uniform vec3 uv1_scale;
+uniform float normal_scale : hint_range(-16,16) = 2.;
+uniform vec3 uv1_scale = vec3(0.25,0.25,0.25);
 uniform vec3 uv1_offset;
-uniform vec3 uv2_scale;
-uniform vec3 uv2_offset;
+global uniform vec3 cam_pos;
+global uniform sampler2D sphere_depth: repeat_disable;
+global uniform float trees_draw_distance;
+global uniform float trees_draw_distance_start;
+uniform bool plant = false;
+global uniform float render_dist_factor;
 
-
-void vertex() {
-	//vec3 dir = CAMERA_POSITION_WORLD;
-	//dir.y = 0.0;
-	//dir = normalize(dir);
-	UV=UV*uv1_scale.xy+uv1_offset.xy + vec2(-2.69,0.);
-	//mat3 bt = mat3(cross(vec3(0.,1.,0.), dir), vec3(0.,1.,0.), dir);
-	//VERTEX = bt * VERTEX;
-	//NORMAL = vec3(0.,1.,0.);
-	MODELVIEW_MATRIX = VIEW_MATRIX * mat4(vec4(normalize(cross(vec3(0.0, 1.0, 0.0), INV_VIEW_MATRIX[2].xyz)), 0.0), vec4(0.0, 1.0, 0.0, 0.0), vec4(normalize(cross(INV_VIEW_MATRIX[0].xyz, vec3(0.0, 1.0, 0.0))), 0.0), MODEL_MATRIX[3]);
-	MODELVIEW_NORMAL_MATRIX = mat3(MODELVIEW_MATRIX);
+vec3 desaturate(vec3 color, float amount)
+{
+    vec3 gray = vec3(dot(vec3(0.2126,0.7152,0.0722), color));
+    return vec3(mix(color, gray, amount));
 }
 
+void vertex() {
+	UV2 = UV;
+	if (plant){
+		UV=UV*0.25;
+	}else{
+		UV=UV*uv1_scale.xy+uv1_offset.xy + vec2(-2.69,0.);
+	}
+
+	MODELVIEW_MATRIX = VIEW_MATRIX * mat4(vec4(normalize(cross(vec3(0.0, 1.0, 0.0), INV_VIEW_MATRIX[2].xyz)), 0.0), vec4(0.0, 1.0, 0.0, 0.0), vec4(normalize(cross(INV_VIEW_MATRIX[0].xyz, vec3(0.0, 1.0, 0.0))), 0.0), MODEL_MATRIX[3]);
+	MODELVIEW_NORMAL_MATRIX = mat3(MODELVIEW_MATRIX);
+	COLOR.x = distance((MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz, cam_pos);
+	if (plant){
+		NORMAL = vec3(0.,1.,0.);
+	}else{
+		VERTEX += vec3(0.,3.,0.);
+	}
 
 
-
-
+}
 
 void fragment() {
+	float fade_distance = COLOR.x;
+	float fade;
+	if (plant){
+		fade_distance = fade_distance / render_dist_factor;
+		fade = clamp(smoothstep(40. * 0.8 , 40., fade_distance), 0.0, 1.0)*clamp(smoothstep(160., 160. * 0.75, fade_distance), 0.0, 1.0);
+	}else{
+		fade = clamp(smoothstep(trees_draw_distance_start, trees_draw_distance, fade_distance), 0.0, 1.0);
+	}
+	if (fade == 0.){
+		discard;
+	}
+	const vec3 magic = vec3(0.06711056f, 0.00583715f, 52.9829189f);
+	if (fade < 0.001 || fade < fract(magic.z * fract(dot(FRAGCOORD.xy, magic.xy)))) {
+		discard;
+	}
 	vec2 base_uv = UV;
 	vec4 albedo_tex = texture(texture_albedo,base_uv);
-	ALBEDO = albedo.rgb * albedo_tex.rgb * vec3(.8,.8,.8);
-	METALLIC = 0.;
-	vec4 roughness_texture_channel = vec4(1.0,0.0,0.0,0.0);
-	float roughness_tex = dot(texture(texture_roughness,base_uv),roughness_texture_channel);
-	ROUGHNESS = roughness_tex * roughness;
-	SPECULAR = 0.1;
-	NORMAL = (vec4(0.,1.,0., 1.) * INV_VIEW_MATRIX).xyz;
-	NORMAL_MAP = texture(texture_normal,base_uv).rgb;
-	NORMAL_MAP_DEPTH = normal_scale * 1.;
-	ALPHA *= albedo.a * albedo_tex.a;
-	ALPHA_SCISSOR_THRESHOLD = alpha_scissor_threshold;
-	vec3 backlight_tex = texture(texture_backlight,base_uv).rgb;
-	//BACKLIGHT = (backlight.rgb+backlight_tex);
-	BACKLIGHT = vec3(.2);
-	{
-		float fade_distance = length(VERTEX);
-		const vec3 magic = vec3(0.06711056f, 0.00583715f, 52.9829189f);		float fade = clamp(smoothstep(150., 200., fade_distance), 0.0, 1.0);
-		if (fade < 0.001 || fade < fract(magic.z * fract(dot(FRAGCOORD.xy, magic.xy)))) {
-			discard;
-		}
+	vec4 normal_d = texture(texture_normal, UV);
+	if (plant){
+		ALBEDO = albedo.rgb * albedo_tex.rgb;
+		BACKLIGHT = vec3(0.2,0.3,0.2);
+		SPECULAR = 0.0;
+		NORMAL_MAP = normal_d.rgb;
+		NORMAL_MAP_DEPTH = 1.;
+		ROUGHNESS = 0.5;
+		LIGHT_VERTEX += vec3(0.,0.,(2. * normal_d.a - 1.));
+	}else{
+		ALBEDO = albedo.rgb *desaturate( albedo_tex.rgb, 0.3) * vec3(0.8, 0.8, 0.6);
+		SPECULAR = 0.0;
+		NORMAL_MAP = mix(texture(sphere_depth,UV2 * vec2(-0.8,0.8) + vec2(0.9,0.2) ).rgb, normal_d.rgb, 0.4);
+		NORMAL_MAP_DEPTH = 5.;
+		LIGHT_VERTEX += vec3(0.,0., 10.);
+		ROUGHNESS = 0.8;
 	}
+
+	ALPHA *= albedo.a * albedo_tex.a;
+	ALPHA_SCISSOR_THRESHOLD = .4;
+
+	//This part has been added in the shader for the Github version of the project, without any textures or meshes. Remove this if you actually want to use the shader.
+	NORMAL_MAP_DEPTH = 0.;
+	BACKLIGHT = vec3(0.);
+	ALBEDO = vec3(0.03, 0.1, 0.01);
 }
 "

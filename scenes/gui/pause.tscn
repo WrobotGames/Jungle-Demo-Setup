@@ -70,16 +70,37 @@ theme_override_constants/separation = 20
 
 [node name="Label3" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "Quick Toggles"
+text = "Modes Selection"
 horizontal_alignment = 1
 
-[node name="showcasebtn" type="Button" parent="VBoxContainer"]
+[node name="Showcase Mode" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Showcase Mode"
+
+[node name="Drone Mode" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Drone Mode"
+
+[node name="FPS Mode" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "FPS Mode"
+
+[node name="HSeparator5" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label4" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quick Toggles"
+horizontal_alignment = 1
 
 [node name="showcasebtn2" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Performance Stats"
+
+[node name="plush" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Godot Plush FPS Mode"
 
 [node name="blackbars" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -111,7 +132,10 @@ layout_mode = 1
 [connection signal="pressed" from="VBoxContainer/resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="VBoxContainer/settingsbtn" to="." method="_on_settingsbtn_pressed"]
 [connection signal="pressed" from="VBoxContainer/quitbtn" to="." method="_on_quitbtn_pressed"]
-[connection signal="pressed" from="VBoxContainer/showcasebtn" to="." method="_on_showcasebtn_pressed"]
+[connection signal="pressed" from="VBoxContainer/Showcase Mode" to="." method="_on_showcasebtn_pressed"]
+[connection signal="pressed" from="VBoxContainer/Drone Mode" to="." method="_on_drone_mode_pressed"]
+[connection signal="pressed" from="VBoxContainer/FPS Mode" to="." method="_on_fps_mode_pressed"]
 [connection signal="pressed" from="VBoxContainer/showcasebtn2" to="." method="_on_showcasebtn_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/plush" to="." method="_on_plush_pressed"]
 [connection signal="pressed" from="VBoxContainer/blackbars" to="." method="_on_blackbars_pressed"]
 [connection signal="value_changed" from="VBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]

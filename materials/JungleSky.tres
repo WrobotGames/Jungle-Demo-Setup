@@ -1,13 +1,15 @@
-[gd_resource type="Sky" load_steps=6 format=3 uid="uid://smenwf7f7c5d"]
+[gd_resource type="Sky" load_steps=7 format=3 uid="uid://smenwf7f7c5d"]
 
 [ext_resource type="Shader" uid="uid://dlx0my85cmaut" path="res://materials/skyshader.tres" id="1_qhlks"]
 [ext_resource type="Texture2D" uid="uid://s7v3slvuh3vf" path="res://textures/skynoise.png" id="2_utqgv"]
+[ext_resource type="Texture2D" uid="uid://d0bmir5tfyb0x" path="res://textures/kloppenheim_07_puresky_4k.hdr" id="3_ontil"]
 
 [sub_resource type="Gradient" id="Gradient_18res"]
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_4k45w"]
 gradient = SubResource("Gradient_18res")
-fill_to = Vector2(0.581197, 0)
+fill_from = Vector2(0.0940171, 0)
+fill_to = Vector2(0.393162, 0)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ite1n"]
 shader = ExtResource("1_qhlks")
@@ -18,12 +20,12 @@ shader_parameter/mie_eccentricity = 0.8
 shader_parameter/mie_color = Color(0.69, 0.729, 0.812, 1)
 shader_parameter/turbidity = 10.0
 shader_parameter/sun_disk_scale = 1.0
-shader_parameter/ground_color = Color(0.443137, 0.309804, 0.145098, 1)
-shader_parameter/exposure = 3.0
-shader_parameter/clouds_color = Color(1, 1, 1, 1)
+shader_parameter/ground_color = Color(0.301941, 0.375, 0.0410156, 1)
+shader_parameter/exposure = 1.0
+shader_parameter/night_sky = ExtResource("3_ontil")
 shader_parameter/clouds = ExtResource("2_utqgv")
 shader_parameter/cloudsgradient = SubResource("GradientTexture2D_4k45w")
+shader_parameter/clouds_color = Color(1, 1, 1, 1)
 
 [resource]
 sky_material = SubResource("ShaderMaterial_ite1n")
-radiance_size = 4

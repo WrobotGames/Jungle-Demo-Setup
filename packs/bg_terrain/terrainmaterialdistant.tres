@@ -1,0 +1,65 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://b22rjwn2gs51m"]
+
+[ext_resource type="Texture2D" uid="uid://cs0pls4sqsh4v" path="res://textures/Terrain_grass1/grass1_diff-h.dds" id="1_0iyf0"]
+[ext_resource type="Texture2D" uid="uid://f7ixq25h2sbm" path="res://packs/bg_terrain/Normal Map.exr" id="2_qqn3j"]
+
+[sub_resource type="Shader" id="Shader_c25p6"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.3.beta1's StandardMaterial3D.
+
+shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_burley, specular_schlick_ggx;
+
+uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color, filter_linear_mipmap, repeat_enable;
+uniform float point_size : hint_range(0.1, 128.0, 0.1);
+
+uniform float roughness : hint_range(0.0, 1.0);
+uniform sampler2D texture_metallic : hint_default_white, filter_linear_mipmap, repeat_enable;
+uniform vec4 metallic_texture_channel;
+uniform sampler2D texture_roughness : hint_roughness_r, filter_linear_mipmap, repeat_enable;
+
+uniform float specular : hint_range(0.0, 1.0, 0.01);
+uniform float metallic : hint_range(0.0, 1.0, 0.01);
+
+uniform sampler2D texture_normal : hint_roughness_normal, filter_linear_mipmap, repeat_enable;
+uniform float normal_scale : hint_range(-16.0, 16.0);
+
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+uniform vec3 uv2_scale;
+uniform vec3 uv2_offset;
+
+void vertex() {
+	UV = UV * uv1_scale.xy + uv1_offset.xy;
+}
+
+void fragment() {
+	vec2 base_uv = UV;
+
+	vec4 albedo_tex = texture(texture_albedo, base_uv * 5.);
+	ALBEDO = albedo.rgb * albedo_tex.rgb;
+
+	SPECULAR = specular;
+
+	// Normal Map: Enabled
+	NORMAL_MAP = texture(texture_normal, base_uv).rgb;
+	NORMAL_MAP_DEPTH = normal_scale;
+}
+"
+
+[resource]
+render_priority = 0
+shader = SubResource("Shader_c25p6")
+shader_parameter/albedo = Color(0.387309, 0.542969, 0.216339, 1)
+shader_parameter/texture_albedo = ExtResource("1_0iyf0")
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/specular = 0.0
+shader_parameter/metallic = 0.0
+shader_parameter/texture_normal = ExtResource("2_qqn3j")
+shader_parameter/normal_scale = 1.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)

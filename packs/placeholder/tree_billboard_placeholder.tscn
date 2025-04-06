@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://dl0ud8lmjl62k"]
+
+[ext_resource type="Shader" uid="uid://juqerrwmrekt" path="res://materials/BillboardShader.tres" id="1_iao1f"]
+[ext_resource type="Texture2D" uid="uid://cy15c84a5oujj" path="res://packs/placeholder/placeholdertree.png" id="2_iao1f"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_efgov"]
+size = Vector2(2.31, 5.05)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2n4na"]
+render_priority = 0
+shader = ExtResource("1_iao1f")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("2_iao1f")
+shader_parameter/roughness = 0.8
+shader_parameter/normal_scale = 2.0
+shader_parameter/uv1_scale = Vector3(-0.08, 0.955, 0.25)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/plant = false
+
+[node name="TreeBillboardPlaceholder" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.548829, 0)
+mesh = SubResource("QuadMesh_efgov")
+surface_material_override/0 = SubResource("ShaderMaterial_2n4na")

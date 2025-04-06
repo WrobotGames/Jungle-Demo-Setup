@@ -27,6 +27,15 @@ const vec3 UP = vec3( 0.0, 1.0, 0.0 );
 // Optical length at zenith for molecules.
 const float rayleigh_zenith_size = 8.4e3;
 const float mie_zenith_size = 1.25e3;
+global uniform bool ground_col_black;
+
+
+vec3 desaturate(vec3 color, float amount)
+{
+    vec3 gray = vec3(dot(vec3(0.2126,0.7152,0.0722), color));
+    return vec3(mix(color, gray, amount));
+}
+
 
 float henyey_greenstein(float cos_theta, float g) {
 	const float k = 0.0795774715459;
@@ -68,28 +77,32 @@ void sky() {
 		Lin *= mix(vec3(1.0), pow(sun_energy * ((betaRTheta + betaMTheta) / (rayleigh_beta + mie_beta)) * extinction, vec3(0.5)), clamp(pow(1.0 - zenith_angle, 5.0), 0.0, 1.0));
 
 		// Hack in the ground color.
-		Lin  *= mix(ground_color.rgb, vec3(1.0), smoothstep(-0.1, 0.1, dot(UP, EYEDIR)));
+		Lin  *= mix(vec3(0.8,0.8,0.9), vec3(1.0), smoothstep(-0.1, 0.1, dot(UP, EYEDIR)));
 
 		// Solar disk and out-scattering.
 		float sunAngularDiameterCos = cos(LIGHT0_SIZE * sun_disk_scale);
 		float sunAngularDiameterCos2 = cos(LIGHT0_SIZE * sun_disk_scale*0.5);
 		float sundisk = smoothstep(sunAngularDiameterCos, sunAngularDiameterCos2, cos_theta);
 		vec3 L0 = (sun_energy * extinction) * sundisk * LIGHT0_COLOR;
-		L0 += texture(night_sky, SKY_COORDS).xyz * extinction * 0.1;
+		//L0 += texture(night_sky, SKY_COORDS).xyz * extinction * 0.1;
 
 		vec3 color = Lin + L0;
 		COLOR = pow(color, vec3(1.0 / (1.2 + (1.2 * sun_fade))));
+		if (LIGHT0_COLOR != vec3(0.)){
+		COLOR *= mix(LIGHT0_COLOR, vec3(1.), 0.6);
+		}
 		COLOR += texture(cloudsgradient,vec2( clamp(texture(clouds, SKY_COORDS).x, 0.01,1.), 0.) ).xyz * clouds_color.xyz * LIGHT0_COLOR;
-		COLOR *= exposure;
+		COLOR *= exposure * vec3(1.,1.,1.);
+		COLOR = desaturate(COLOR, -0.4);
+		if (SKY_COORDS.y > 0.55){
+			COLOR = vec3(0.,0.0,0.0);
+		}
 	} else {
 		// There is no sun, so display night_sky and nothing else.
-		COLOR = texture(night_sky, SKY_COORDS).xyz;
-		COLOR *= exposure;
+		COLOR = texture(night_sky, SKY_COORDS + vec2(-0.3,0.)).xyz;
+		COLOR *= 0.3;
+		COLOR = desaturate(COLOR, -1.);
 	}
-	if (SKY_COORDS.y > 0.55){
-		if (LIGHT0_COLOR != vec3(0.,0.,0.)){
-		COLOR = ground_color.xyz * 1.;
-		}
-	}
+
 }
 "

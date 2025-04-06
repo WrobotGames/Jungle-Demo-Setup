@@ -14,24 +14,28 @@ func _ready():
 
 func goto_scene(path, current_scene):
 	
-	var loader = ResourceLoader.load_threaded_request(path, "", true)
+	#var loader = ResourceLoader.load_threaded_request(path, "", true)
 	$"../../loadingscreen".show()
-	if loader == null:
-		print("Resource loader unable to load the resource at path")
-		return
+	#if loader == null:
+	#	print("Resource loader unable to load the resource at path")
+	#	return
 	
 	
-	while true:
-		await get_tree().create_timer(0.1).timeout
-		if (ResourceLoader.load_threaded_get_status(path) == 3):
-			var resource = ResourceLoader.load_threaded_get(path)
-			get_tree().get_root().call_deferred('add_child',resource.instantiate())
-		
-			
-			print('loaded')
-			current_scene.queue_free()
-			break
-		
+	#while true:
+	#	await get_tree().create_timer(0.1).timeout
+	#	if (ResourceLoader.load_threaded_get_status(path) == 3):
+	#		var resource = ResourceLoader.load_threaded_get(path)
+	#		get_tree().get_root().call_deferred('add_child',resource.instantiate())
+	#	
+	#		
+	#		print('loaded')
+	#		current_scene.queue_free()
+	#		break
+	await get_tree().create_timer(0.1).timeout
+	var scene = load("res://scenes/Jungle.tscn")
+	get_tree().get_root().add_child(scene.instantiate())
+	print('loading completed!')
+	current_scene.queue_free()
 		
 		
 

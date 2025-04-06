@@ -1,18 +1,21 @@
-[gd_scene load_steps=28 format=3 uid="uid://uqianhqkduoo"]
+[gd_scene load_steps=21 format=3 uid="uid://uqianhqkduoo"]
 
 [ext_resource type="PackedScene" uid="uid://bujmt4htelbhi" path="res://scenes/gui/pause.tscn" id="1_f7lxj"]
 [ext_resource type="Theme" uid="uid://delj3mi1iaei4" path="res://scenes/gui/theme.tres" id="1_m12fc"]
-[ext_resource type="Script" path="res://scripts/loading2.gd" id="2_1hggp"]
+[ext_resource type="Script" uid="uid://dob4h385ywi11" path="res://scripts/loading2.gd" id="2_1hggp"]
 [ext_resource type="AudioStream" uid="uid://iaqlc18ksf07" path="res://scenes/JungleAudio/006_lifeWave2k_0.mp3" id="2_dw3qd"]
 [ext_resource type="AudioStream" uid="uid://nlaj2mivyw1k" path="res://scenes/JungleAudio/Birds and Wind - Ambient_1.ogg" id="3_u0067"]
 [ext_resource type="Sky" uid="uid://smenwf7f7c5d" path="res://materials/JungleSky.tres" id="3_vmjqq"]
+[ext_resource type="PackedScene" uid="uid://x3x3cc4hxxe0" path="res://packs/bg_terrain/backgroundterrain.tscn" id="5_c1n8q"]
 [ext_resource type="AnimationLibrary" uid="uid://d12563fha88iq" path="res://scenes/animations.res" id="5_vwjih"]
 [ext_resource type="PackedScene" uid="uid://blyqm3fpovxjw" path="res://scenes/JungleFoliage.tscn" id="7_biedx"]
-[ext_resource type="Shader" path="res://materials/ParticleGrass.gdshader" id="8_sbbmf"]
-[ext_resource type="Texture2D" uid="uid://bf8fs7x3f6op8" path="res://scenes/jungleterrain/Wizard.png" id="10_767go"]
+[ext_resource type="PackedScene" uid="uid://b85c0wb2teut5" path="res://scenes/vegetation.tscn" id="9_dx3f1"]
 [ext_resource type="PackedScene" uid="uid://byym202ro6lqq" path="res://scenes/drone.tscn" id="11_1fiub"]
-[ext_resource type="Texture2D" uid="uid://durbai0ju4tyi" path="res://scenes/jungleterrain/WizardNormal.png" id="13_ksr5e"]
-[ext_resource type="Script" path="res://addons/monitor_overlay/monitor_overlay.gd" id="33_two1w"]
+[ext_resource type="PackedScene" uid="uid://chuy1u8dfwtb3" path="res://packs/GodotPlush/2024_06_24_godot_plushy.tscn" id="13_f8a56"]
+[ext_resource type="Script" uid="uid://dkyu88ivefxng" path="res://addons/monitor_overlay/monitor_overlay.gd" id="33_two1w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_imq50"]
+bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qwpp8"]
 bg_color = Color(0, 0, 0, 0)
@@ -23,92 +26,60 @@ expand_margin_top = 1000.0
 expand_margin_bottom = 1000.0
 
 [sub_resource type="Gradient" id="Gradient_ls2jd"]
-offsets = PackedFloat32Array(0, 0.0297872, 0.22234, 0.574468, 1)
-colors = PackedColorArray(0, 0, 0, 1, 0.776042, 0.220283, 0.0646701, 1, 0.858824, 0.47451, 0.231373, 1, 0.917647, 0.733333, 0.466667, 1, 0.984375, 0.942558, 0.835693, 1)
+offsets = PackedFloat32Array(0, 0.0297872)
+colors = PackedColorArray(0, 0, 0, 1, 0.776042, 0.220283, 0.0646701, 1)
 
 [sub_resource type="Curve" id="Curve_hoqxg"]
-max_value = 100.0
-_data = [Vector2(0, 3), 0.0, 0.0, 0, 0, Vector2(0.0140333, 7.90801), 0.0, 0.0, 0, 0, Vector2(1, 33.5014), 29.7801, 0.0, 1, 0]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0, 3), 0.0, 0.0, 0, 0, Vector2(0.019, 8.413), 0.0, 0.0, 0, 0, Vector2(1, 42.8), 38.1222, 0.0, 1, 0]
 point_count = 3
 
 [sub_resource type="Environment" id="Environment_tmag7"]
 background_mode = 2
 sky = ExtResource("3_vmjqq")
-tonemap_mode = 3
-tonemap_white = 8.0
+tonemap_mode = 4
+tonemap_white = 6.0
 ssr_max_steps = 512
 ssr_fade_in = 3.07945e-05
 ssr_fade_out = 1.2394e-05
+ssao_power = 3.0
+ssao_sharpness = 1.0
+ssao_light_affect = 1.0
+ssao_ao_channel_affect = 1.0
 sdfgi_bounce_feedback = 1.0
-glow_enabled = true
-glow_strength = 0.75
+sdfgi_cascades = 5
+sdfgi_max_distance = 409.6
+glow_intensity = 0.1
 glow_blend_mode = 1
+glow_hdr_threshold = 2.0
 fog_enabled = true
-fog_light_color = Color(1, 1, 1, 1)
-fog_light_energy = 0.53
-fog_sun_scatter = 0.04
-fog_density = 0.003
+fog_light_color = Color(0.655609, 0.713259, 0.726563, 1)
+fog_light_energy = 0.0
+fog_sun_scatter = 0.01
+fog_density = 0.0005
 fog_aerial_perspective = 1.0
 fog_sky_affect = 0.0
-fog_height = 135.03
-volumetric_fog_density = 0.001
-volumetric_fog_albedo = Color(0.788235, 0.921569, 1, 1)
+fog_height = 70.0
+fog_height_density = 0.02
+fog_depth_curve = 0.378929
+fog_depth_begin = 50.0
+fog_depth_end = 6000.0
+volumetric_fog_density = 0.0
 volumetric_fog_length = 512.0
-volumetric_fog_ambient_inject = 0.3
+volumetric_fog_ambient_inject = 1.0
+adjustment_enabled = true
+adjustment_contrast = 1.1
+adjustment_saturation = 1.1
 
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_kcyac"]
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_8sq7w"]
 dof_blur_far_distance = 5.0
 dof_blur_far_transition = 0.0
-auto_exposure_min_sensitivity = 200.0
+dof_blur_near_distance = 5.0
 
 [sub_resource type="FogMaterial" id="FogMaterial_a6l64"]
-density = 0.005
+density = 0.003
 height_falloff = 0.0243549
 edge_fade = 0.0241484
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_imq50"]
-bg_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gqfdb"]
-metallic = 1.0
-roughness = 0.03
-clearcoat_enabled = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qgfpa"]
-albedo_color = Color(0.133333, 0.294118, 0.0980392, 1)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_h4t6t"]
-load_path = "res://.godot/imported/Wizard.exr-57f1999ecc67bb40c16cf32c5bb1368b.bptc.ctex"
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_nwa7r"]
-frequency = 1.0
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qtd3o"]
-noise = SubResource("FastNoiseLite_nwa7r")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3qb17"]
-shader = ExtResource("8_sbbmf")
-shader_parameter/instance_rows = 60.0
-shader_parameter/base_scale = Vector3(1.535, 1, 1.605)
-shader_parameter/rotation = Vector3(0, 1, -5.925)
-shader_parameter/instance_spacing = 1.0
-shader_parameter/height_offset = 0.0
-shader_parameter/map_heightmap_size = Vector2(1024, 1024)
-shader_parameter/__terrain_amplitude = 500.0
-shader_parameter/instance_pos_randomize = 5.09
-shader_parameter/instance_rot_randomize = 36.21
-shader_parameter/test = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
-shader_parameter/instance_orient_to_normal = false
-shader_parameter/map_normalmap_size = Vector2(1024, 1024)
-shader_parameter/terrain_normal_basis = Basis(1, 0, 0, 0, 1, 0, 0, 0, 1)
-shader_parameter/instance_orientation_influence = 0.0
-shader_parameter/map_heightmap = SubResource("CompressedTexture2D_h4t6t")
-shader_parameter/map_mask = ExtResource("10_767go")
-shader_parameter/noisemap = SubResource("NoiseTexture2D_qtd3o")
-shader_parameter/map_normalmap = ExtResource("13_ksr5e")
-
-[sub_resource type="BoxMesh" id="BoxMesh_oy6ll"]
-size = Vector3(0.3, 0.3, 0.3)
 
 [node name="main" type="Node3D"]
 
@@ -117,6 +88,15 @@ stream = ExtResource("2_dw3qd")
 volume_db = -6.0
 autoplay = true
 bus = &"Music"
+
+[node name="black_panel" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_imq50")
 
 [node name="BlackBars" type="AspectRatioContainer" parent="."]
 visible = false
@@ -162,64 +142,73 @@ graph_height = 30
 [node name="env" type="WorldEnvironment" parent="." groups=["env"]]
 unique_name_in_owner = true
 environment = SubResource("Environment_tmag7")
-camera_attributes = SubResource("CameraAttributesPractical_kcyac")
+camera_attributes = SubResource("CameraAttributesPractical_8sq7w")
 
 [node name="sun" type="DirectionalLight3D" parent="." groups=["sun"]]
 unique_name_in_owner = true
-transform = Transform3D(-0.173289, 0.425745, -0.888095, 0.178005, 0.900425, 0.396923, 0.968651, -0.0893032, -0.231819, 0, 0, 0)
-light_color = Color(0.890196, 0.886275, 0.882353, 1)
-light_energy = 5.0
-light_indirect_energy = 8.0
+transform = Transform3D(-0.422619, 0.411456, -0.807526, 0, 0.891008, 0.453991, 0.906308, 0.191865, -0.376556, 0, 0, 0)
+light_temperature = 3940.0
+light_energy = 10.0
+light_indirect_energy = 3.0
 shadow_enabled = true
-directional_shadow_mode = 0
-directional_shadow_split_1 = 0.01
-directional_shadow_split_2 = 0.1
-directional_shadow_max_distance = 30.0
+shadow_bias = 0.05
+shadow_blur = 0.5
+directional_shadow_split_1 = 0.02
+directional_shadow_split_2 = 0.06
+directional_shadow_split_3 = 0.25
+directional_shadow_blend_splits = true
+directional_shadow_fade_start = 0.9
+directional_shadow_max_distance = 400.0
 
 [node name="Lighting" type="Node3D" parent="."]
+
+[node name="backgroundterrain" parent="Lighting" instance=ExtResource("5_c1n8q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1289.25, -199.77, 2403.03)
 
 [node name="FogVolumes" type="Node3D" parent="Lighting"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 512, 0, 512)
 
 [node name="FogVolume" type="FogVolume" parent="Lighting/FogVolumes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.145111, 101.453, 36.446)
-size = Vector3(2048, 293.61, 2048)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.145081, 91.5161, 36.446)
+size = Vector3(2048, 512, 2048)
+shape = 0
 material = SubResource("FogMaterial_a6l64")
 
 [node name="FogVolume2" type="FogVolume" parent="Lighting/FogVolumes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 348.629, 82.9755, -183.134)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 348.629, 99.7152, -183.134)
 size = Vector3(200, 50, 200)
 shape = 0
 material = SubResource("FogMaterial_a6l64")
 
 [node name="FogVolume3" type="FogVolume" parent="Lighting/FogVolumes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 215.241, 82.9755, 19.035)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 215.241, 99.7152, 19.035)
 size = Vector3(200, 50, 200)
 shape = 0
 material = SubResource("FogMaterial_a6l64")
 
 [node name="FogVolume4" type="FogVolume" parent="Lighting/FogVolumes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 285.232, 82.9755, 233.703)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 285.232, 99.7152, 233.703)
 size = Vector3(308.71, 50, 200)
 shape = 0
 material = SubResource("FogMaterial_a6l64")
 
 [node name="FogVolume5" type="FogVolume" parent="Lighting/FogVolumes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.1149, 82.9755, -7.18985)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.1149, 99.7152, -7.18985)
 size = Vector3(308.71, 50, 200)
 shape = 0
 material = SubResource("FogMaterial_a6l64")
 
 [node name="FogVolume6" type="FogVolume" parent="Lighting/FogVolumes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 388.033, 82.9755, -7.18985)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 388.033, 99.7152, -7.18985)
 size = Vector3(308.71, 50, 200)
 shape = 0
 material = SubResource("FogMaterial_a6l64")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": ExtResource("5_vwjih")
+&"": ExtResource("5_vwjih")
 }
+blend_times = [&"camera cinematic", &"camera cinematic", 1.0]
 
 [node name="loadingscreen" type="Control" parent="."]
 layout_mode = 3
@@ -241,38 +230,24 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_imq50")
 
 [node name="Drone" parent="." instance=ExtResource("11_1fiub")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 860.497, 99.903, 494.242)
-
-[node name="MeshInstance3D" parent="Drone" index="0"]
-surface_material_override/0 = SubResource("StandardMaterial3D_gqfdb")
+transform = Transform3D(-0.796444, 0.295895, 0.527373, 0, 0.872106, -0.489316, -0.604711, -0.389713, -0.694584, 832.519, 105.351, 26.5651)
 
 [node name="Camera3D" parent="Drone" index="2"]
-current = true
 fov = 40.0
 
-[node name="AudioListener3D" type="AudioListener3D" parent="Drone/Camera3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -860.497, -99.903, -494.242)
-current = true
-
-[node name="grass" type="GPUParticles3D" parent="Drone" groups=["grass"]]
-material_override = SubResource("StandardMaterial3D_qgfpa")
-cast_shadow = 0
-amount = 3600
-speed_scale = 10.0
-explosiveness = 1.0
-visibility_aabb = AABB(-25, -10, -25, 50, 20, 50)
-draw_order = 3
-process_material = SubResource("ShaderMaterial_3qb17")
-draw_pass_1 = SubResource("BoxMesh_oy6ll")
+[node name="vegetation" parent="Drone/head" index="2" instance=ExtResource("9_dx3f1")]
 
 [node name="DroneLight" type="SpotLight3D" parent="Drone"]
 transform = Transform3D(0.993221, 0, 0.116237, 0, 1, 0, -0.116237, 0, 0.993221, 0.338257, 0, 0)
 visible = false
-light_color = Color(0.956863, 0.827451, 0.709804, 1)
-light_energy = 20.0
+light_intensity_lumens = 100000.0
+light_temperature = 4000.0
+light_energy = 64.0
 light_volumetric_fog_energy = 0.0
+light_size = 0.1
 shadow_enabled = true
 spot_range = 50.0
+spot_angle = 39.22
 spot_angle_attenuation = 0.406126
 
 [node name="AudioStreamPlayers" type="Node3D" parent="."]
@@ -280,143 +255,169 @@ spot_angle_attenuation = 0.406126
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="AudioStreamPlayers"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 147.55, 110.106, 149.132)
 stream = ExtResource("3_u0067")
-unit_size = 50.13
+attenuation_model = 1
+unit_size = 100.0
 autoplay = true
 bus = &"GameSFX"
 
 [node name="AudioStreamPlayer3D16" type="AudioStreamPlayer3D" parent="AudioStreamPlayers"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 160.795, 155.713, 725.903)
 stream = ExtResource("3_u0067")
-unit_size = 50.13
+attenuation_model = 1
+unit_size = 100.0
 autoplay = true
 bus = &"GameSFX"
 
 [node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="AudioStreamPlayers"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 393.22, 110.106, 149.132)
 stream = ExtResource("3_u0067")
-unit_size = 50.13
+attenuation_model = 1
+unit_size = 100.0
 autoplay = true
 bus = &"GameSFX"
 
 [node name="AudioStreamPlayer3D3" type="AudioStreamPlayer3D" parent="AudioStreamPlayers"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 638.93, 110.106, 149.132)
 stream = ExtResource("3_u0067")
-unit_size = 50.13
+attenuation_model = 1
+unit_size = 100.0
 autoplay = true
 bus = &"GameSFX"
 
 [node name="AudioStreamPlayer3D4" type="AudioStreamPlayer3D" parent="AudioStreamPlayers"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 855.93, 110.106, 149.132)
 stream = ExtResource("3_u0067")
-unit_size = 50.13
+attenuation_model = 1
+unit_size = 100.0
 autoplay = true
 bus = &"GameSFX"
 
 [node name="AudioStreamPlayer3D5" type="AudioStreamPlayer3D" parent="AudioStreamPlayers"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 855.93, 110.106, 345.553)
 stream = ExtResource("3_u0067")
-unit_size = 50.13
+attenuation_model = 1
+unit_size = 100.0
 autoplay = true
 bus = &"GameSFX"
 
 [node name="AudioStreamPlayer3D6" type="AudioStreamPlayer3D" parent="AudioStreamPlayers"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 619.855, 110.106, 345.553)
 stream = ExtResource("3_u0067")
-unit_size = 50.13
+attenuation_model = 1
+unit_size = 100.0
 autoplay = true
 bus = &"GameSFX"
 
 [node name="AudioStreamPlayer3D7" type="AudioStreamPlayer3D" parent="AudioStreamPlayers"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 390.225, 110.106, 345.553)
 stream = ExtResource("3_u0067")
-unit_size = 50.13
+attenuation_model = 1
+unit_size = 100.0
 autoplay = true
 bus = &"GameSFX"
 
 [node name="AudioStreamPlayer3D8" type="AudioStreamPlayer3D" parent="AudioStreamPlayers"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 160.795, 110.106, 345.553)
 stream = ExtResource("3_u0067")
-unit_size = 50.13
+attenuation_model = 1
+unit_size = 100.0
 autoplay = true
 bus = &"GameSFX"
 
 [node name="AudioStreamPlayer3D9" type="AudioStreamPlayer3D" parent="AudioStreamPlayers"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 855.93, 110.106, 557.341)
 stream = ExtResource("3_u0067")
-unit_size = 50.13
+attenuation_model = 1
+unit_size = 100.0
 autoplay = true
 bus = &"GameSFX"
 
 [node name="AudioStreamPlayer3D10" type="AudioStreamPlayer3D" parent="AudioStreamPlayers"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 619.855, 110.106, 557.341)
 stream = ExtResource("3_u0067")
-unit_size = 50.13
+attenuation_model = 1
+unit_size = 100.0
 autoplay = true
 bus = &"GameSFX"
 
 [node name="AudioStreamPlayer3D11" type="AudioStreamPlayer3D" parent="AudioStreamPlayers"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 390.225, 110.106, 557.341)
 stream = ExtResource("3_u0067")
-unit_size = 50.13
+attenuation_model = 1
+unit_size = 100.0
 autoplay = true
 bus = &"GameSFX"
 
 [node name="AudioStreamPlayer3D12" type="AudioStreamPlayer3D" parent="AudioStreamPlayers"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 160.795, 110.106, 557.341)
 stream = ExtResource("3_u0067")
-unit_size = 50.13
+attenuation_model = 1
+unit_size = 100.0
 autoplay = true
 bus = &"GameSFX"
 
 [node name="AudioStreamPlayer3D13" type="AudioStreamPlayer3D" parent="AudioStreamPlayers"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 855.93, 110.106, 725.903)
 stream = ExtResource("3_u0067")
-unit_size = 50.13
+attenuation_model = 1
+unit_size = 100.0
 autoplay = true
 bus = &"GameSFX"
 
 [node name="AudioStreamPlayer3D14" type="AudioStreamPlayer3D" parent="AudioStreamPlayers"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 619.855, 110.106, 725.903)
 stream = ExtResource("3_u0067")
-unit_size = 50.13
+attenuation_model = 1
+unit_size = 100.0
 autoplay = true
 bus = &"GameSFX"
 
 [node name="AudioStreamPlayer3D15" type="AudioStreamPlayer3D" parent="AudioStreamPlayers"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 390.225, 171.403, 725.903)
 stream = ExtResource("3_u0067")
-unit_size = 50.13
+attenuation_model = 1
+unit_size = 100.0
 autoplay = true
 bus = &"GameSFX"
 
 [node name="AudioStreamPlayer3D17" type="AudioStreamPlayer3D" parent="AudioStreamPlayers"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 855.93, 110.106, 928.716)
 stream = ExtResource("3_u0067")
-unit_size = 50.13
+attenuation_model = 1
+unit_size = 100.0
 autoplay = true
 bus = &"GameSFX"
 
 [node name="AudioStreamPlayer3D18" type="AudioStreamPlayer3D" parent="AudioStreamPlayers"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 619.855, 115.554, 928.716)
 stream = ExtResource("3_u0067")
-unit_size = 50.13
+attenuation_model = 1
+unit_size = 100.0
 autoplay = true
 bus = &"GameSFX"
 
 [node name="AudioStreamPlayer3D19" type="AudioStreamPlayer3D" parent="AudioStreamPlayers"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 390.225, 127.718, 928.716)
 stream = ExtResource("3_u0067")
-unit_size = 50.13
+attenuation_model = 1
+unit_size = 100.0
 autoplay = true
 bus = &"GameSFX"
 
 [node name="AudioStreamPlayer3D20" type="AudioStreamPlayer3D" parent="AudioStreamPlayers"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 160.795, 154.047, 928.716)
 stream = ExtResource("3_u0067")
-unit_size = 50.13
+attenuation_model = 1
+unit_size = 100.0
 autoplay = true
 bus = &"GameSFX"
 
+[node name="Node" type="Node" parent="AudioStreamPlayers"]
+
 [node name="Foliage" parent="." instance=ExtResource("7_biedx")]
 
+[node name="2024-06-24_Godot_Plushy" parent="." instance=ExtResource("13_f8a56")]
+transform = Transform3D(0.609153, -0.641586, -0.466155, 0.137904, 0.664537, -0.734421, 0.780971, 0.38309, 0.493281, 473.667, 111.431, 431.317)
+
 [editable path="Drone"]
+[editable path="Drone/head/vegetation"]

@@ -1,0 +1,36 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://70i7ybhmvwul"
+path.bptc="res://.godot/imported/oceyml4q7y431-2481815601.jpg-9e82e8ba1e25e6a3f03a4b57bca5e1c8.bptc.ctex"
+path.astc="res://.godot/imported/oceyml4q7y431-2481815601.jpg-9e82e8ba1e25e6a3f03a4b57bca5e1c8.astc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
+}
+
+[deps]
+
+source_file="res://textures/oceyml4q7y431-2481815601.jpg"
+dest_files=["res://.godot/imported/oceyml4q7y431-2481815601.jpg-9e82e8ba1e25e6a3f03a4b57bca5e1c8.bptc.ctex", "res://.godot/imported/oceyml4q7y431-2481815601.jpg-9e82e8ba1e25e6a3f03a4b57bca5e1c8.astc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=true
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=-3
+roughness/src_normal="res://packs/Jungle/Textures/Imposter/T_BushA_01_Imposter_N.png"
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

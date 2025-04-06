@@ -1,12 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://upsyfweitccj"]
+[gd_scene load_steps=9 format=3 uid="uid://upsyfweitccj"]
 
-[ext_resource type="Script" path="res://scripts/LoadingButton.gd" id="1_08v4e"]
+[ext_resource type="Script" uid="uid://dtpm6m4xb2sq8" path="res://scripts/LoadingButton.gd" id="1_08v4e"]
 [ext_resource type="Theme" uid="uid://delj3mi1iaei4" path="res://scenes/gui/theme.tres" id="1_trqu1"]
-[ext_resource type="VideoStream" path="res://scenes/Untitled2.ogv" id="5_e8bdm"]
+[ext_resource type="Texture2D" uid="uid://bi8dkdmdhs00q" path="res://scenes/gui/bg_blur.png" id="2_ib15e"]
+[ext_resource type="VideoStream" uid="uid://c4dxgmw6nolmb" path="res://scenes/Untitled2.ogv" id="5_e8bdm"]
+[ext_resource type="Script" uid="uid://cse42tsu3fsoo" path="res://scripts/loadinganim.gd" id="5_lb2cr"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vnww0"]
-bg_color = Color(0, 0, 0, 1)
-anti_aliasing = false
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u5rxc"]
+texture = ExtResource("2_ib15e")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_blx3f"]
 bg_color = Color(0.0745098, 0.0745098, 0.0745098, 1)
@@ -33,16 +34,24 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme = ExtResource("1_trqu1")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_vnww0")
+ratio = 1.7778
+stretch_mode = 3
+
+[node name="Panel" type="Panel" parent="AspectRatioContainer2"]
+modulate = Color(0.386719, 0.386719, 0.386719, 1)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_u5rxc")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(200, 0)
@@ -62,12 +71,12 @@ grow_vertical = 2
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.882353, 1, 0.584314, 1)
-text = "Jungle demo"
+text = "Jungle demo v2"
 horizontal_alignment = 1
 
 [node name="loadbtn" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "Load World"
+text = "Start "
 script = ExtResource("1_08v4e")
 
 [node name="creditsbtn" type="Button" parent="VBoxContainer"]
@@ -96,7 +105,6 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_blx3f")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Credits"]
-clip_contents = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -116,7 +124,10 @@ focus_mode = 2
 bbcode_enabled = true
 text = "[color=#0099ff] [center]Thank You For Playing ❤️[/center] [/color]
 
-[center]Jungle Demo is a graphics demo based on Godot 4.2dev, made by WrobotGames[/center]
+[center]Jungle Demo 2.0 is a graphics demo based on Godot 4.4, made by WrobotGames.
+Godot Game Engine is an awesome free and open source game engine, and this demo wants to show a part of what its capable of. 
+[/center]
+[center]Download the Godot Game Engine on Godotengine.org[/center]
 
 [color=orange] [center]Used assets & Licenses[/center] [/color]
 [color=green] [center]Godot Engine[/center] [/color]
@@ -207,7 +218,6 @@ Ported to Godot
 https://ambientcg.com/
 https://polyhaven.com/
 https://opengameart.org/"
-fit_content = true
 context_menu_enabled = true
 selection_enabled = true
 
@@ -218,21 +228,16 @@ text = "Close"
 [node name="Precredits" type="Panel" parent="."]
 custom_minimum_size = Vector2(400, 400)
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 0.35
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -200.0
-offset_right = 200.0
-offset_bottom = 200.0
+anchor_bottom = 0.65
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_blx3f")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Precredits"]
-clip_contents = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -252,14 +257,14 @@ mouse_filter = 2
 bbcode_enabled = true
 text = "[color=#0099ff] [center]Thank You For Downloading ❤️[/center] [/color]
 
-[center]Jungle Demo is a graphics demo based on Godot 4.2dev[/center]
+[center]Jungle Demo is a graphics showcase based on the Godot Game Engine version 4.4.[/center]
 
-[center]The scene loads with the [color=yellow]Medium[/color] preset by default. Please change the settings if necessery. [/center]
+[center]The scene loads the [color=yellow]High[/color] preset by default. Change the settings if needed. [/center]
 
-[center]Demo made by WrobotGames 
-Mastodon: @wrobot@mastodon.gamedev.place[/center]
+[center]Made by WrobotGames 
+Twitter: @Wrobot123
+Github: WrobotGames[/center]
 [color=green] [center]Enjoy the demo![/center] [/color]"
-fit_content = true
 
 [node name="Button" type="Button" parent="Precredits/VBoxContainer"]
 layout_mode = 2
@@ -294,7 +299,7 @@ grow_horizontal = 0
 grow_vertical = 0
 theme_override_colors/font_color = Color(0.239216, 0.239216, 0.239216, 1)
 theme_override_font_sizes/font_size = 12
-text = "V1.0"
+text = "V2.0 Github Stripped - Wrobot.itch.io "
 
 [node name="loadingscreen" type="Panel" parent="."]
 visible = false
@@ -306,16 +311,33 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_n142u")
 
-[node name="Label" type="Label" parent="loadingscreen"]
+[node name="HBoxContainer" type="HBoxContainer" parent="loadingscreen"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 7.0
-offset_top = -27.0
-offset_right = 79.0
-offset_bottom = -6.0
+offset_top = -40.0
+offset_right = 72.0
 grow_vertical = 0
+
+[node name="Label2" type="Label" parent="loadingscreen/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47451, 0.47451, 0.47451, 1)
+theme_override_font_sizes/font_size = 15
+text = " "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="loadingscreen/HBoxContainer"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0.261719, 0.247406, 0.247406, 1)
+script = ExtResource("5_lb2cr")
+
+[node name="Label" type="Label" parent="loadingscreen/HBoxContainer"]
+layout_mode = 2
 theme_override_colors/font_color = Color(0.47451, 0.47451, 0.47451, 1)
 theme_override_font_sizes/font_size = 15
 text = "Loading..."

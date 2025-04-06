@@ -1,0 +1,58 @@
+[gd_resource type="Terrain3DAssets" load_steps=15 format=3 uid="uid://wxgsd1665nrh"]
+
+[ext_resource type="Texture2D" uid="uid://cs0pls4sqsh4v" path="res://textures/Terrain_grass1/grass1_diff-h.dds" id="1_q5vuj"]
+[ext_resource type="Texture2D" uid="uid://oboq84os1oyy" path="res://textures/Terrain_grass1/grass1_normal-r.png" id="2_dnyds"]
+[ext_resource type="Texture2D" uid="uid://c4k78q2ptlvvp" path="res://textures/Terrain_cliff1/albedo_h.dds" id="3_3pmh6"]
+[ext_resource type="Texture2D" uid="uid://b3fpoku88tyge" path="res://textures/Terrain_cliff1/cliff1_normal-r.png" id="4_yr7qy"]
+[ext_resource type="Texture2D" uid="uid://bipvd4s2ge6ce" path="res://textures/Terrain_mud1/mud1_diff-h.dds" id="5_bsp27"]
+[ext_resource type="Texture2D" uid="uid://m7pfvqvr77cb" path="res://textures/Terrain_mud1/mud1_normal-r.png" id="6_c41pe"]
+[ext_resource type="Texture2D" uid="uid://driydxp0gnhro" path="res://textures/Terrain_grass2/grass2_diff-h.dds" id="7_julnq"]
+[ext_resource type="Texture2D" uid="uid://bu0dx8fjpoqjc" path="res://textures/Terrain_grass2/grass2_normal-r.png" id="8_tlgxy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6qvf6"]
+cull_mode = 2
+vertex_color_use_as_albedo = true
+backlight_enabled = true
+backlight = Color(0.5, 0.5, 0.5, 1)
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_ixuib"]
+generated_type = 1
+height_offset = 0.5
+material_override = SubResource("StandardMaterial3D_6qvf6")
+last_lod = 0
+last_shadow_lod = 0
+lod0_range = 128.0
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_khi55"]
+name = "grass1_diff-h"
+albedo_color = Color(0.402429, 0.570313, 0.334167, 1)
+albedo_texture = ExtResource("1_q5vuj")
+normal_texture = ExtResource("2_dnyds")
+uv_scale = 0.5
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_0pf0s"]
+name = "albedo_h"
+id = 1
+albedo_color = Color(0.714844, 0.714844, 0.714844, 1)
+albedo_texture = ExtResource("3_3pmh6")
+normal_texture = ExtResource("4_yr7qy")
+uv_scale = 0.2
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_2dpym"]
+name = "mud1_diff-h"
+id = 2
+albedo_texture = ExtResource("5_bsp27")
+normal_texture = ExtResource("6_c41pe")
+uv_scale = 0.35
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_5vvy4"]
+name = "grass2_diff-h"
+id = 3
+albedo_color = Color(0.628906, 0.604839, 0.547836, 1)
+albedo_texture = ExtResource("7_julnq")
+normal_texture = ExtResource("8_tlgxy")
+uv_scale = 0.5
+
+[resource]
+mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_ixuib")])
+texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_khi55"), SubResource("Terrain3DTextureAsset_0pf0s"), SubResource("Terrain3DTextureAsset_2dpym"), SubResource("Terrain3DTextureAsset_5vvy4")])

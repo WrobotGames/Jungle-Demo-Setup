@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://chuy1u8dfwtb3"]
+
+[ext_resource type="PackedScene" uid="uid://duodj2hm68da5" path="res://packs/GodotPlush/2024-06-24_Godot_Plushy.glb" id="1_0f51l"]
+[ext_resource type="Texture2D" uid="uid://cyemxtdrgbb21" path="res://packs/GodotPlush/GodotPlush.jpg" id="2_xrioj"]
+[ext_resource type="Texture2D" uid="uid://cleirwa34hor7" path="res://packs/GodotPlush/Normals.png" id="3_ytcgp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nblge"]
+albedo_color = Color(0.859375, 0.859375, 0.859375, 1)
+albedo_texture = ExtResource("2_xrioj")
+roughness = 0.9
+normal_enabled = true
+normal_scale = 0.4
+normal_texture = ExtResource("3_ytcgp")
+subsurf_scatter_strength = 0.25
+
+[node name="2024-06-24_Godot_Plushy" instance=ExtResource("1_0f51l")]
+
+[node name="Mball_026" parent="." index="0"]
+transform = Transform3D(0.143, 0, 0, 0, 0.119, 0, 0, 0, 0.143, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_nblge")

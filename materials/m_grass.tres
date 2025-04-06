@@ -1,13 +1,14 @@
-[gd_resource type="ShaderMaterial" load_steps=8 format=3 uid="uid://bkp2kubfuk382"]
+[gd_resource type="ShaderMaterial" load_steps=7 format=3 uid="uid://bkp2kubfuk382"]
 
 [ext_resource type="Shader" uid="uid://cgg0vuclhhip7" path="res://materials/GrassShader.tres" id="1_r8br2"]
-[ext_resource type="Texture2D" uid="uid://b3cbjpbrijtx7" path="res://textures/grass01/leafy_grass_diff_2k.jpg" id="2_2x0v5"]
-[ext_resource type="Texture2D" uid="uid://bea7loyjy3e6m" path="res://textures/grass01/leafy_grass_arm_2k.jpg" id="3_nppkn"]
-[ext_resource type="Texture2D" path="res://textures/grass01/leafy_grass_nor_gl_2k.dds" id="4_k7yv4"]
-[ext_resource type="Texture2D" uid="uid://durbai0ju4tyi" path="res://scenes/jungleterrain/WizardNormal.png" id="5_te01o"]
+[ext_resource type="Texture2D" uid="uid://c0yvdpkfou23b" path="res://packs/Jungle/Textures/Trees/T_GroundCover_01_D.png" id="2_fd8va"]
+[ext_resource type="Texture2D" uid="uid://6xmltx3c8di0" path="res://packs/Jungle/Textures/Trees/T_GroundCover_01_S.png" id="3_einoe"]
+[ext_resource type="Texture2D" uid="uid://csb2faiq80ogh" path="res://packs/Jungle/Textures/Trees/T_GroundCover_01_N.png" id="4_s8kgx"]
 
 [sub_resource type="Gradient" id="Gradient_ryivu"]
 interpolation_color_space = 1
+offsets = PackedFloat32Array(0.253425, 0.294521, 0.945205, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.765952, 0.765952, 0.765952, 1, 0.986365, 0.986365, 0.986365, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_qqenr"]
 gradient = SubResource("Gradient_ryivu")
@@ -17,17 +18,16 @@ fill_to = Vector2(1, 1)
 [resource]
 render_priority = 0
 shader = ExtResource("1_r8br2")
-shader_parameter/Color = Color(0.329412, 0.356863, 0.160784, 1)
+shader_parameter/Albedomap = ExtResource("2_fd8va")
+shader_parameter/specular = SubResource("GradientTexture2D_qqenr")
+shader_parameter/Color = Color(0.9, 1.1, 0.95, 1)
 shader_parameter/Roughness = 0.8
-shader_parameter/Specular = 0.6
-shader_parameter/NormalStrength = 0.0
-shader_parameter/Backlight = Color(0.505882, 0.635294, 0.176471, 1)
-shader_parameter/Alpha_Scissor_Threshold = 0.645
+shader_parameter/Specular = 0.2
+shader_parameter/Detailmap = ExtResource("3_einoe")
+shader_parameter/Normalmap = ExtResource("4_s8kgx")
+shader_parameter/NormalStrength = 0.2
+shader_parameter/Backlight = Color(0, 0, 0, 1)
+shader_parameter/Alpha_Scissor_Threshold = 0.4
 shader_parameter/sway_speed = 2.0
 shader_parameter/sway_strength = 0.01
 shader_parameter/sway_phase_len = 8.0
-shader_parameter/Albedomap = ExtResource("2_2x0v5")
-shader_parameter/specular = SubResource("GradientTexture2D_qqenr")
-shader_parameter/Detailmap = ExtResource("3_nppkn")
-shader_parameter/Normalmap = ExtResource("4_k7yv4")
-shader_parameter/NormalmapTer = ExtResource("5_te01o")
