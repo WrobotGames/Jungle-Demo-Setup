@@ -1,20 +1,16 @@
-# Jungle-Demo-Setup
+# Jungle-Demo-Setup (from Jungle Demo 2.0)
 
 ![Godot Engine Screenshot 2025 04 06 - 21 47 41 44](https://github.com/user-attachments/assets/76a80219-e41d-4df5-826b-47c63e1a1220)
 
-
-
-IMPORTANT: Project developed in Godot 4.4.1 (Older or Newer may not work!)
+This version of the project was made in Godot 4.4.1, other version might not work as intended.
 
 The source code for my jungle demo scene with all copyrighted material removed. 
 Things removed: all jungle 3D models and textures, font used for gui. Meshes have been replaced with cubes. 
 Things still there: All gui, scenes with lighting setup, terrain, CC0 textures, music (CCO music)
 
-For who is this repo? This repo is for anyone who is interested in how the demo was set up, reminder that this was a hobby project, and im not a professional game dev nor a professional programmer. I couldnt be bothered changing the names of files/funcions, so expect some lazy names somewhere.
-## What how where?
-The project opens the main.tscn by default, this is the main menu.
-The main jungle scene is scenes/jungle.tscn
-All scattered foliage and the terrain is in the scenes/JungleFoliage.tscn file, seperated because saving would take too long.
+For who is this repo? This repo is for anyone who is interested in how the demo was set up, keeping in mind that this is a hobby project, so expect some less-than-perfect code practices here and there.
+
+Feel free to reach out to me if you have any questions!
 
 # Licenses:
 
@@ -31,7 +27,8 @@ Godot Engine Logo
 Copyright (c) 2017 Andrea Calabró
 
 This work is licensed under the Creative Commons Attribution 4.0 International
-license (CC BY 4.0 International): https://creativecommons.org/licenses/by/4.0/```
+license (CC BY 4.0 International): https://creativecommons.org/licenses/by/4.0/
 
 ## Other files
-All other have been made by WrobotGames and can be used under the MIT license. Code or design ideas can be used freely
+
+All other code/text files (files that are readable in a text editor) are licensed under MIT. All assets, like the project icon and images are licensed under CC BY 4.0 https://creativecommons.org/licenses/by/4.0/  by (c) 2026 Wrobot
