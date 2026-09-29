@@ -2,6 +2,7 @@ extends Control
 
 var tween
 
+# Fade out the loading screen and start the cinematic.
 func _ready():
 	tween = get_tree().create_tween()
 	$"../AnimationPlayer".play("camera cinematic")

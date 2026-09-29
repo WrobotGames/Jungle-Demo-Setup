@@ -12,8 +12,8 @@ var fps = false
 
 var camrot_h = 0
 var camrot_v = 0
-@export var cam_v_max = 80 # 75 recommended
-@export var cam_v_min = -80 # -55 recommended
+@export var cam_v_max = 80
+@export var cam_v_min = -80
 @export var joystick_sensitivity = 10
 var h_sensitivity = .01
 var v_sensitivity = .01
@@ -50,7 +50,8 @@ var haptics = true
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$Camera3D.make_current()
-	
+
+# Rotate the in the correct way for fps mode and drone mode.
 func _input(event):	
 	if fps:
 		if event is InputEventMouseMotion and not $"../pausemenu".visible:
@@ -61,14 +62,12 @@ func _input(event):
 		
 func _joystick_input():
 	if (Input.is_action_pressed("lookup") ||  Input.is_action_pressed("lookdown") ||  Input.is_action_pressed("lookleft") ||  Input.is_action_pressed("lookright")):
-		
 		joyview.x = Input.get_action_strength("lookleft") - Input.get_action_strength("lookright")
 		joyview.y = Input.get_action_strength("lookup") - Input.get_action_strength("lookdown")
 		camrot_h += joyview.x * joystick_sensitivity * h_sensitivity
 		camrot_v += joyview.y * joystick_sensitivity * v_sensitivity 
 		
-		
-
+# Switch between fps mode and drone mode.
 func set_fps(enable: bool):
 	fps = enable
 	if not animating:
@@ -91,11 +90,11 @@ func set_fps(enable: bool):
 			$"./DroneLight".visible = true
 
 func _process(delta):
-
 	if fps:
+		# send camera position to renderingserver so it can be used by the shaders fading in and out distant objects.
 		RenderingServer.global_shader_parameter_set("cam_pos", $head/Camera3D.global_position)
 		rotate_camera(Input.get_vector("look_left","look_right", "look_up", "look_down" ) * look_sensitivity * delta * 60.)
-		#Gravity
+		# Gravity and jumping using cayote time, so it feels a bit better when jumping from a tree.
 		if is_on_floor():
 			cayote_t = 0.
 			if jump_t < 0.2:
@@ -106,6 +105,7 @@ func _process(delta):
 			jump_t += delta
 			cayote_t += delta
 			velocity.y -= 9.81 * delta
+		# Jump action
 		if Input.is_action_just_pressed("move_jump"):
 			if cayote_t < 0.2:
 				cayote_t = 10.
@@ -116,22 +116,21 @@ func _process(delta):
 			else:
 				jump_t = 0.
 
-		#if not Input.get_action_strength("move_sprint") and not connected:
-		#	$head/Camera3D.fov = lerp($head/Camera3D.fov, 65., delta * 5)
+		# Movement.
 		var input =  Input.get_vector("move_left","move_right",  "move_forward", "move_backward" )
 		var input_dir = (transform.basis * Vector3(input.x, 0., input.y))
 		var trueaccel = acceleration
+		# When not on the floor, there is less control over acceleration, but not zero.
 		if not is_on_floor():
 			trueaccel *= 0.25
 		var vel_y = velocity.y
 		if Input.get_action_strength("move_sprint"):
-			#$head/Camera3D.fov = lerp($head/Camera3D.fov, 80., delta * 5)
 			velocity = velocity.move_toward(input_dir * speed_running, delta * trueaccel)
 			travel += speed_running * delta * input_dir.length()
 		else:
-			#$head/Camera3D.fov = lerp($head/Camera3D.fov, 65., delta * 5)
 			velocity = velocity.move_toward(input_dir * speed, delta * trueaccel)
 			travel += speed * delta * input_dir.length()
+		# sounds effects and haptics
 		if is_on_floor() and travel > 1.7:
 			$AudioStreamPlayer3D.play()
 			if haptics:
@@ -140,32 +139,27 @@ func _process(delta):
 		velocity.y = vel_y
 		move_and_slide()
 	else:
+		# send camera position to renderingserver so it can be used by the shaders fading in and out distant objects.
 		RenderingServer.global_shader_parameter_set("cam_pos", $Camera3D.global_position)
 			
 		# JoyPad Controls
 		if not animating and not $"../pausemenu".visible:
 			rotate_camera2(Input.get_vector("look_left","look_right", "look_up", "look_down" ) * look_sensitivity * delta * 60.)
-		#_joystick_input()
-		#Clamping the vertical rotation
-		#camrot_v = clamp(camrot_v, deg_to_rad(cam_v_min), deg_to_rad(cam_v_max))
-		
-		#if not animating and not $"../pausemenu".visible:
-		#	rotation.y = lerp_angle(rotation.y, camrot_h, delta * h_acceleration)
-		#	rotation.x = lerp_angle(rotation.x, camrot_v, delta * v_acceleration)
-		
+
 		if Input.is_action_pressed('sprint'):
 			SPEED = 15.0
 		else:
 			SPEED = 5.0
-			
-		if position.x > 1000:
-			position.x = 999
-		if position.z > 1000:
-			position.z = 999
-		if position.x < 0:
-			position.x = 1
-		if position.z < 0:
-			position.z = 1
+		
+		# Prevents the player from going out of bounds.
+		if position.x > 998:
+			position.x = 995
+		if position.z > 998:
+			position.z = 995
+		if position.x < 2:
+			position.x = 5
+		if position.z < 2:
+			position.z = 5
 		var direction = (transform.basis * Vector3(Input.get_action_strength("right") - Input.get_action_strength('left'), 0, Input.get_action_strength("backward") - Input.get_action_strength('forward'))).normalized()
 		if direction:
 			velocity.x = direction.x * SPEED
@@ -178,13 +172,14 @@ func _process(delta):
 		if not animating and not $"../pausemenu".visible:
 			move_and_slide()
 	
-
+# Rotate camera function for fps mode
 func rotate_camera(mouse_axis : Vector2) -> void:
 	actual_rotation.y -= mouse_axis.x * (mouse_sensitivity/1000)
 	actual_rotation.x = clamp(actual_rotation.x - mouse_axis.y * (mouse_sensitivity/1000), -vertical_angle_limit, vertical_angle_limit)
 	rotation.y = actual_rotation.y
 	$head.rotation.x = actual_rotation.x
 	
+# Rotate camera function for drone mode
 func rotate_camera2(mouse_axis : Vector2) -> void:
 	actual_rotation.y -= mouse_axis.x * (mouse_sensitivity/1000)
 	actual_rotation.x = clamp(actual_rotation.x - mouse_axis.y * (mouse_sensitivity/1000), -vertical_angle_limit, vertical_angle_limit)

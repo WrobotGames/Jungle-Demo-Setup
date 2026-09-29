@@ -6,15 +6,18 @@ extends Control
 var animating
 var dof = false
 var is_fps
-#var lastpos = Vector3(472.7,101.,551.) 
+# This variable stores to position of fps or drone mode,
+# so when switching to showcase and back does not lose the position.
 var lastpos = Vector3(479, 119, 435)
-# Called when the node enters the scene tree for the first time.
+
+# Set default time of day.
 func _ready():
 	animating = true
 	shadowenabled = true
 	_on_h_slider_value_changed(0.6)
 	$VBoxContainer/HSlider.value = 0.6
 
+# Input to show/hide pause menu
 func _process(_delta: float) -> void:
 		if Input.is_action_just_pressed('pause'):
 			if visible:
@@ -24,20 +27,20 @@ func _process(_delta: float) -> void:
 				show()
 				Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
+# Hide the pause menu
 func _on_resume_pressed():
 	hide()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
-
+# Show the settings menu
 func _on_settingsbtn_pressed():
 	$Settings.show()
 
-
+# Quit game
 func _on_quitbtn_pressed():
 	get_tree().quit()
 
-
-
+# Switch to showcase (cinematic) mode
 func _on_showcasebtn_pressed():
 	hide()
 	$"../black_panel".show()
@@ -51,6 +54,7 @@ func _on_showcasebtn_pressed():
 		is_fps = false
 		toggle_dof(dof)
 
+# Switch to drone mode
 func _on_drone_mode_pressed() -> void:
 	hide()
 	$"../black_panel".hide()
@@ -67,7 +71,7 @@ func _on_drone_mode_pressed() -> void:
 			$"../Drone".position = lastpos
 		toggle_dof(dof)
 
-
+# Switch to fps mode.
 func _on_fps_mode_pressed() -> void:
 	hide()
 	$"../black_panel".hide()
@@ -83,8 +87,11 @@ func _on_fps_mode_pressed() -> void:
 			$"../Drone".position = lastpos
 		toggle_dof(dof)
 
-
+# Time of day system.
 func _on_h_slider_value_changed(value):
+	# If the value is small, switch to night.
+	# Switching to night disables the sun including its shadows
+	# but it does enable player lights so they can still see stuff up close.
 	if (value < 0.01):
 		get_node("%sun").visible = false
 		get_node("%sun").light_color = Color(0.,0.,0.)
@@ -112,11 +119,11 @@ func _on_h_slider_value_changed(value):
 			$"../Drone/head/flashlight".visible = false
 		else:
 			$"../Drone/DroneLight".visible = false
+	# Sample the color temperature and sun angle based on predefined curves.
 	get_node("%sun").light_temperature = lerp(1300., 5700.,value)
 	get_node("%sun").rotation_degrees.x = timeangle.sample(value) * -1.0
-	
 
-
+# Enable / Disable Depth of Field effect.
 func toggle_dof(toggled):
 	dof = toggled
 	if animating:
@@ -125,15 +132,15 @@ func toggle_dof(toggled):
 	else:
 		$"Settings".env.camera_attributes.dof_blur_near_enabled = false
 		$"Settings".env.camera_attributes.dof_blur_far_enabled = false
-		
 
+# Toggle performance statistics overlay.
 func _on_showcasebtn_2_pressed():
 	$"../MonitorOverlay".visible = not $"../MonitorOverlay".visible
 
-
+# Toggle cinematic bars visibility
 func _on_blackbars_pressed():
 	$"../BlackBars".visible = not $"../BlackBars".visible
 
-
+# Toggle plush visibility.
 func _on_plush_pressed() -> void:
 	get_tree().get_nodes_in_group('plush')[0].visible = not get_tree().get_nodes_in_group('plush')[0].visible
