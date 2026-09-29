@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://blaieaqp413k7"]
 
-[ext_resource type="Script" path="res://addons/terrain_3d/tools/importer.gd" id="1_60b8f"]
+[ext_resource type="Script" uid="uid://cib2rig7vup10" path="res://addons/terrain_3d/tools/importer.gd" id="1_60b8f"]
 
 [sub_resource type="Gradient" id="Gradient_88f3t"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -46,10 +46,12 @@ backlight_enabled = true
 backlight = Color(0.5, 0.5, 0.5, 1)
 
 [sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_7je72"]
-height_offset = 0.5
-density = 10.0
-material_override = SubResource("StandardMaterial3D_8rvqy")
 generated_type = 1
+height_offset = 0.5
+material_override = SubResource("StandardMaterial3D_8rvqy")
+last_lod = 0
+last_shadow_lod = 0
+lod0_range = 128.0
 
 [sub_resource type="Terrain3DAssets" id="Terrain3DAssets_op32e"]
 mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_7je72")])

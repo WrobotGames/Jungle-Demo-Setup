@@ -282,10 +282,10 @@ func _on_render_distance_item_selected(index: int) -> void:
 			grass.visible = false
 		else:
 			grass.visible = true
-	for child in get_tree().get_nodes_in_group("ctree")[0].get_child(3).get_children():
+	for child in get_tree().get_nodes_in_group("ctree")[0].get_child(2).get_children():
 		for childchild in child.get_children():
 			childchild.get_child(0).visibility_range_end = draw_distance
-	for child in get_tree().get_nodes_in_group("dtree")[0].get_child(3).get_children():
+	for child in get_tree().get_nodes_in_group("dtree")[0].get_child(2).get_children():
 		for childchild in child.get_children():
 			childchild.visibility_range_begin = draw_distance_start
 

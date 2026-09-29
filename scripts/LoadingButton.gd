@@ -32,7 +32,7 @@ func goto_scene(path, current_scene):
 	#		current_scene.queue_free()
 	#		break
 	await get_tree().create_timer(0.1).timeout
-	var scene = load("res://scenes/Jungle.tscn")
+	var scene = load(path)
 	get_tree().get_root().add_child(scene.instantiate())
 	print('loading completed!')
 	current_scene.queue_free()

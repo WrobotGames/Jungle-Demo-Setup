@@ -15,7 +15,7 @@ func _ready():
 	_on_h_slider_value_changed(0.6)
 	$VBoxContainer/HSlider.value = 0.6
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 		if Input.is_action_just_pressed('pause'):
 			if visible:
 				hide()

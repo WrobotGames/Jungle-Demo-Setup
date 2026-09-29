@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://byym202ro6lqq"]
 
-[ext_resource type="Script" path="res://scripts/drone.gd" id="1_7kck6"]
+[ext_resource type="Script" uid="uid://0crc74ibxs6x" path="res://scripts/drone.gd" id="1_7kck6"]
 [ext_resource type="AudioStream" uid="uid://bqxfe6ulgpxhq" path="res://scenes/JungleAudio/footsteps/gassy-footstep1.wav" id="2_dyptp"]
 [ext_resource type="PackedScene" uid="uid://chuy1u8dfwtb3" path="res://packs/GodotPlush/2024_06_24_godot_plushy.tscn" id="2_joaxo"]
 [ext_resource type="AudioStream" uid="uid://c30hiitnu17x0" path="res://scenes/JungleAudio/footsteps/grassy-footstep2.wav" id="3_1nhaa"]

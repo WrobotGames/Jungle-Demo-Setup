@@ -91,10 +91,8 @@ shader_parameter/extra_cull_margin = 2.0
 shader_parameter/close_cull = 0.0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wen3k"]
-load_path = "res://.godot/imported/T_GroundCover_01_D.png-845a8e51f2ed5f5683c21707460658cd.s3tc.ctex"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_akdyy"]
-load_path = "res://.godot/imported/T_GroundCover_01_N.png-4396861a2b79e3a9e1c13b58099e7776.s3tc.ctex"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xcdkq"]
 render_priority = 0
@@ -161,10 +159,8 @@ shader_parameter/extra_cull_margin = 2.0
 shader_parameter/close_cull = 0.0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_u6xl8"]
-load_path = "res://.godot/imported/T_Vines_01_D.png-58fe0c4d71085f17e214a6b3e2fc268e.s3tc.ctex"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_l6g8y"]
-load_path = "res://.godot/imported/T_Vines_01_N.png-f342d2b6878eb2b99afdb7002f7de3ec.s3tc.ctex"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xvm7h"]
 render_priority = 0
@@ -199,10 +195,8 @@ shader_parameter/extra_cull_margin = 2.0
 shader_parameter/close_cull = 0.0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xgu0x"]
-load_path = "res://.godot/imported/T_TropicalFern_FO_D.png-80fefaa87d204d89295f550dc4efb3ad.s3tc.ctex"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_73tjh"]
-load_path = "res://.godot/imported/T_TropicalFern_FO_N.png-eb99eb7082b651fde1905a4346c27476.s3tc.ctex"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i5l8k"]
 render_priority = 0
@@ -237,10 +231,8 @@ shader_parameter/extra_cull_margin = 2.0
 shader_parameter/close_cull = 0.0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5cb4v"]
-load_path = "res://.godot/imported/T_Fern_01_Imposter_D.png-0239cae41711c1ad68b87d0d97209d1a.s3tc.ctex"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qpre0"]
-load_path = "res://.godot/imported/T_Fern_01_Imposter_N.png-2065057a660fde2d9fd4bdaae723b527.s3tc.ctex"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8phmn"]
 render_priority = 0
@@ -291,7 +283,6 @@ shader_parameter/extra_cull_margin = 2.0
 shader_parameter/close_cull = 0.0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_55qe4"]
-load_path = "res://.godot/imported/T_Fern_02_Imposter_D.png-0637fabc3abd52f9ce3cd3b254f405dd.s3tc.ctex"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hipbd"]
 render_priority = 0
@@ -340,10 +331,8 @@ shader_parameter/extra_cull_margin = 2.0
 shader_parameter/close_cull = 0.0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_quxel"]
-load_path = "res://.godot/imported/T_Fern_03_Imposter_D.png-10d1ef0ffd95a7f9ac0c977f5404947b.s3tc.ctex"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xfef3"]
-load_path = "res://.godot/imported/T_Fern_03_Imposter_N.png-21a15e1be7c07d9c9f332e1af3b17545.s3tc.ctex"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ehcpd"]
 render_priority = 0
@@ -378,10 +367,8 @@ size = Vector2(1.2, 1.2)
 center_offset = Vector3(0, 0.065, 0)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_u8b3d"]
-load_path = "res://.godot/imported/T_Fern_01_FO_D.png-b4d949205f722a7a19406366e15cb5a0.s3tc.ctex"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_il55e"]
-load_path = "res://.godot/imported/T_Fern_01_FO_N.png-43267e027ad5eb9688b44e6b5dfa0069.s3tc.ctex"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aw76j"]
 render_priority = 0
@@ -416,10 +403,8 @@ shader_parameter/extra_cull_margin = 2.0
 shader_parameter/close_cull = 0.0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_neb4j"]
-load_path = "res://.godot/imported/T_Fern_04_Imposter_D.png-cf88754ad71719f1d73129e785c57407.s3tc.ctex"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ye4n1"]
-load_path = "res://.godot/imported/T_Fern_04_Imposter_N.png-696fe9e830cbaebc19c84f1e09742f88.s3tc.ctex"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y7do3"]
 render_priority = 0
@@ -454,10 +439,8 @@ size = Vector2(4, 4)
 center_offset = Vector3(0, 0.74, 0)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ityi6"]
-load_path = "res://.godot/imported/T_Monstera_FO_D.png-8bfddffac69541cab4a7626ab67d31ac.s3tc.ctex"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lj7hi"]
-load_path = "res://.godot/imported/T_Monstera_FO_N.png-6298483da9675d8773fc946071164eba.s3tc.ctex"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yenad"]
 render_priority = 0
@@ -492,10 +475,8 @@ shader_parameter/extra_cull_margin = 2.0
 shader_parameter/close_cull = 0.0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ka2mo"]
-load_path = "res://.godot/imported/T_Monstera_01_Imposter_D.png-9773750cb0cd9e163c22da687405a0fb.s3tc.ctex"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_q3vls"]
-load_path = "res://.godot/imported/T_Monstera_01_Imposter_N.png-79b9587149e331face3a450a4372a4de.s3tc.ctex"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l6ql7"]
 render_priority = 0
@@ -546,10 +527,8 @@ shader_parameter/extra_cull_margin = 2.0
 shader_parameter/close_cull = 0.0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cickm"]
-load_path = "res://.godot/imported/T_Monstera_02_Imposter_D.png-55201d0562ac88a1c48939a6ba52bdec.s3tc.ctex"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n3m0w"]
-load_path = "res://.godot/imported/T_Monstera_02_Imposter_N.png-c0cdadf5bbd9989f8bffd16245885dfa.s3tc.ctex"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nnfmw"]
 render_priority = 0
@@ -616,10 +595,8 @@ shader_parameter/extra_cull_margin = 2.0
 shader_parameter/close_cull = 0.0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6wnnt"]
-load_path = "res://.godot/imported/T_RedGinger_D.png-c5bc6183fa545b018e8a4663019f8dd7.s3tc.ctex"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_58aga"]
-load_path = "res://.godot/imported/T_RedGinger_N.png-4a1d7fc05ed3249cc57a97d389f37cd7.s3tc.ctex"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_onbam"]
 render_priority = 0
@@ -654,10 +631,8 @@ shader_parameter/extra_cull_margin = 2.0
 shader_parameter/close_cull = 0.0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bf42i"]
-load_path = "res://.godot/imported/T_RedGinger_01_Imposter_D.png-b4b06941016cf15b3f605a353287cf8a.s3tc.ctex"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_an5so"]
-load_path = "res://.godot/imported/T_RedGinger_01_Imposter_N.png-6eabf34d02e026e29c053602d5c0d965.s3tc.ctex"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2p5jc"]
 render_priority = 0
@@ -740,10 +715,8 @@ shader_parameter/extra_cull_margin = 2.0
 shader_parameter/close_cull = 0.0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wwboi"]
-load_path = "res://.godot/imported/T_TaroPlant_01_D.png-74d1aeae3c94ff49ce939a1c0694b9ea.s3tc.ctex"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mxmig"]
-load_path = "res://.godot/imported/T_TaroPlant_01_N.png-2a0b87224c9db4f74705749df264409b.s3tc.ctex"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bd4ds"]
 render_priority = 0
@@ -778,7 +751,6 @@ shader_parameter/extra_cull_margin = 2.0
 shader_parameter/close_cull = 0.0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_diynx"]
-load_path = "res://.godot/imported/T_TaroPlant_01_Imposter_D.png-8cac41b6567463c9ae52429357411ba2.s3tc.ctex"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_whk5c"]
 render_priority = 0
@@ -828,10 +800,8 @@ shader_parameter/extra_cull_margin = 2.0
 shader_parameter/close_cull = 0.0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xyckc"]
-load_path = "res://.godot/imported/T_TaroPlant_02_Imposter_D.png-d57f9f1d9dc4cb35a7d793224080e171.s3tc.ctex"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bidib"]
-load_path = "res://.godot/imported/T_TaroPlant_02_Imposter_N.png-635594f78dbd785dec06bf1165372c97.s3tc.ctex"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2ftue"]
 render_priority = 0
